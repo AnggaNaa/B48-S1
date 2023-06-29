@@ -23,9 +23,18 @@ function submitData() {
   a.href = `mailto:${emailReceiver}?subject=${subject}&body=Halo, nama saya ${name}, ${message}. Silahkan kontak saya di nomor ${phone}, terimakasih.`;
   a.click();
 
-  console.log(name);
-  console.log(email);
-  console.log(phone);
-  console.log(subject);
-  console.log(message);
+  // console.log(name);
+  // console.log(email);
+  // console.log(phone);
+  // console.log(subject);
+  // console.log(message);
+
+  let emailer = {
+    name,
+    email,
+    phone,
+    subject,
+    message,
+  };
+  console.log(emailer);
 }
