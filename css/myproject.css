@@ -1,0 +1,209 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dce0e4;
+}
+
+nav {
+  background-color: #ebeaea;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+nav ul li {
+  font-size: large;
+  margin-right: 45px;
+}
+
+nav ul li .active {
+  font-weight: bold;
+}
+
+nav ul li a {
+  color: black;
+}
+
+nav ul li a:hover {
+  color: orangered;
+}
+
+.nav-left {
+  flex: 50%;
+}
+
+.nav-right {
+  flex: 50%;
+  text-align: end;
+  margin-right: 45px;
+}
+
+.nav-right a {
+  background-color: black;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 10px;
+}
+
+.nav-right a:hover {
+  background-color: orangered;
+}
+
+form {
+  width: 500px;
+  margin: auto;
+  background-color: white;
+}
+
+div h1 {
+  text-align: center;
+} */
+
+.date-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.date-group .input-date {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-group {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.checkbox-group .checkbox-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkbox-group .checkbox-list label {
+  color: rgb(62, 62, 62);
+}
+
+.checkbox-list input {
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+}
+
+.label-image label {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.label-image label p {
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(209, 209, 209);
+  color: rgb(158, 158, 158);
+}
+
+.label-image label i {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+/* styling list project */
+.pembungkus-container-project {
+  padding: 80px;
+  background-color: aliceblue;
+}
+
+.pembungkus-container-project h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 40px;
+}
+
+.container-project {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 50px;
+}
+
+.container-project .card-project {
+  background-color: white;
+  padding: 10px;
+  width: 300px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 7px 10px rgb(158, 158, 158);
+}
+.container-project .card-project:hover {
+  transform: scale(1.03);
+}
+
+.container-project .image-project img {
+  width: 100%;
+  height: 250px;
+  margin-bottom: -20px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.container-project .card-project .duration p {
+  margin-top: -25px;
+  font-size: small;
+  color: rgb(96, 96, 96);
+}
+
+.container-project .card-project .description {
+  font-size: small;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+  height: 7em;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.container-project .card-project .icons i {
+  font-size: 25px;
+  padding-right: 20px;
+  margin-bottom: 15px;
+}
+
+.container-project .card-project .button-project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-project .card-project .button-project button {
+  background-color: black;
+  color: white;
+  padding: 2px 55px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container-project .card-project .button-project button:hover {
+  background-color: white;
+  color: black;
+}

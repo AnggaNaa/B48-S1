@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Project</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/myproject.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li>
+            <a href="https://dumbways.id/"
+              ><img src="assets/images/logo.png" alt=""
+            /></a>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="">My Project</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <a href="contact.html">Contact Me</a>
+      </div>
+    </nav>
+
+    <form onsubmit="addProject(event)">
+      <div>
+        <h1>ADD MY PROJECT</h1>
+      </div>
+
+      <div>
+        <label for="input-name-project">Project Name</label>
+        <input id="input-name-project" type="text" />
+      </div>
+      <div class="date-group">
+        <div class="input-date">
+          <label for="start-date">Start Date</label>
+          <input id="start-date" type="date" />
+        </div>
+        <div class="input-date">
+          <label for="end-date">End Date</label>
+          <input id="end-date" type="date" />
+        </div>
+      </div>
+      <div>
+        <label for="input-description">Description</label>
+        <textarea name="" id="input-description" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        <label>Technologies</label>
+        <div class="checkbox-group">
+          <div class="checkbox-list">
+            <input type="checkbox" name="" id="node-js" class="multi-input" />
+            <label for="node-js">Node JS</label>
+          </div>
+          <div class="checkbox-list">
+            <input type="checkbox" id="golang" class="multi-input" />
+            <label for="golang">Golang</label>
+          </div>
+          <div class="checkbox-list">
+            <input type="checkbox" name="" id="react-js" class="multi-input" />
+            <label for="react-js">React JS</label>
+          </div>
+          <div class="checkbox-list">
+            <input
+              type="checkbox"
+              name=""
+              id="javascript"
+              class="multi-input"
+            />
+            <label for="javascript">Javascript</label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label>Upload Image</label>
+        <div class="label-image">
+          <label for="input-image"
+            ><p>Choose</p>
+            <i class="fa-solid fa-paperclip fa-fw"></i
+          ></label>
+          <input type="file" id="input-image" hidden />
+        </div>
+      </div>
+      <div>
+        <button type="submit" onclick="emptyFormAlert()">submit</button>
+      </div>
+    </form>
+
+    <!-- LIST PROJECT -->
+
+    <div class="pembungkus-container-project">
+      <h1>MY PROJECT</h1>
+      <div class="container-project" id="contents">
+        <div class="card-project">
+          <div class="image-project">
+            <img src="assets/images/1.jpg" alt="" />
+          </div>
+
+          <div class="duration">
+            <a href="blog.html" target="_blank"
+              ><h4>Dumbways Mobile App - 2021</h4></a
+            >
+            <p>duration : 3 bulan</p>
+          </div>
+
+          <div class="description">
+            <p>
+              App that used for dumbways student, it was deployed and can
+              downloaded on playstore. Happy download.
+            </p>
+          </div>
+
+          <div class="icons">
+            <i class="fa-brands fa-google-play"></i>
+            <i class="fa-brands fa-android"></i>
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <div class="button-project">
+            <button>edit</button>
+            <button>delete</button>
+          </div>
+        </div>
+
+        <div class="card-project">
+          <div class="image-project">
+            <img src="assets/images/2.jpg" alt="" />
+          </div>
+
+          <div class="duration">
+            <a href="blog.html" target="_blank"
+              ><h4>Dumbways Mobile App - 2021</h4></a
+            >
+            <p>duration : 3 bulan</p>
+          </div>
+
+          <div class="description">
+            <p>
+              App that used for dumbways student, it was deployed and can
+              downloaded on playstore. Happy download.
+            </p>
+          </div>
+
+          <div class="icons">
+            <i class="fa-brands fa-google-play"></i>
+            <i class="fa-brands fa-android"></i>
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <div class="button-project">
+            <button>edit</button>
+            <button>delete</button>
+          </div>
+        </div>
+
+        <div class="card-project">
+          <div class="image-project">
+            <img src="assets/images/3.jpg" alt="" />
+          </div>
+
+          <div class="duration">
+            <a href="blog.html" target="_blank"
+              ><h4>Dumbways Mobile App - 2021</h4></a
+            >
+            <p>duration : 3 bulan</p>
+          </div>
+
+          <div class="description">
+            <p>
+              App that used for dumbways student, it was deployed and can
+              downloaded on playstore. Happy download.
+            </p>
+          </div>
+
+          <div class="icons">
+            <i class="fa-brands fa-google-play"></i>
+            <i class="fa-brands fa-android"></i>
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <div class="button-project">
+            <button>edit</button>
+            <button>delete</button>
+          </div>
+        </div>
+
+        <div class="card-project">
+          <div class="image-project">
+            <img src="assets/images/4.jpg" alt="" />
+          </div>
+
+          <div class="duration">
+            <a href="blog.html" target="_blank"
+              ><h4>Dumbways Mobile App - 2021</h4></a
+            >
+            <p>duration : 3 bulan</p>
+          </div>
+
+          <div class="description">
+            <p>
+              App that used for dumbways student, it was deployed and can
+              downloaded on playstore. Happy download.
+            </p>
+          </div>
+
+          <div class="icons">
+            <i class="fa-brands fa-google-play"></i>
+            <i class="fa-brands fa-android"></i>
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <div class="button-project">
+            <button>edit</button>
+            <button>delete</button>
+          </div>
+        </div>
+
+        <div class="card-project">
+          <div class="image-project">
+            <img src="assets/images/5.jpg" alt="" />
+          </div>
+
+          <div class="duration">
+            <a href="blog.html" target="_blank"
+              ><h4>Dumbways Mobile App - 2021</h4></a
+            >
+            <p>duration : 3 bulan</p>
+          </div>
+
+          <div class="description">
+            <p>
+              App that used for dumbways student, it was deployed and can
+              downloaded on playstore. Happy download.
+            </p>
+          </div>
+
+          <div class="icons">
+            <i class="fa-brands fa-google-play"></i>
+            <i class="fa-brands fa-android"></i>
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <div class="button-project">
+            <button>edit</button>
+            <button>delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/myproject.js"></script>
+  </body>
+</html>

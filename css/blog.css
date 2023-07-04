@@ -1,0 +1,45 @@
+.container-blog {
+  margin: 0 50px;
+}
+
+div h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.header-blog {
+  display: flex;
+}
+
+.header-blog .left-blog {
+  margin: 10px;
+}
+
+.header-blog .left-blog img {
+  width: 100%;
+  height: 400px;
+}
+
+.header-blog .right-blog {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.right-blog .right-icon-blog {
+  display: flex;
+}
+
+.right-blog .icon-duration i {
+  font-size: 30px;
+  margin: 0 20px;
+}
+
+.right-blog .right-icon-blog i {
+  font-size: 30px;
+  margin: 0 20px;
+}
+
+.paragraf-blog {
+  text-align: justify;
+}
