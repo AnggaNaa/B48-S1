@@ -6,15 +6,15 @@ function submitData() {
   let message = document.getElementById("input-message").value;
 
   if (name == "") {
-    return alert("Nama harus diisi !");
+    return alert("Please input your name !");
   } else if (email == "") {
-    return alert("Email harus diisi !");
+    return alert("Please input your email !");
   } else if (phone == "") {
-    return alert("Phone harus diisi !");
+    return alert("Please input your Phone Number !");
   } else if (subject == "") {
-    return alert("Subject harus diisi !");
+    return alert("Please input your Subject !");
   } else if (message == "") {
-    return alert("Message harus diisi");
+    return alert("Please input your Message !");
   }
 
   let emailReceiver = "angga.ardiansyah056@gmail.com";

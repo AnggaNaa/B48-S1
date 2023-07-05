@@ -36,6 +36,11 @@ function addProject(event) {
   const reactJsIcon = '<i class="fa-brands fa-react"></i>';
   const javascriptIcon = '<i class="fa-brands fa-square-js"></i>';
 
+  // let multiInput = document.querySelectorAll(".multi-input:checked");
+  // if (multiInput.length === 0) {
+  //   return alert("Select at least one technology used.");
+  // }
+
   let nodejs = document.getElementById("node-js").checked ? nodeJsIcon : "";
   let golang = document.getElementById("golang").checked ? golangIcon : "";
   let reactjs = document.getElementById("react-js").checked ? reactJsIcon : "";
@@ -43,32 +48,45 @@ function addProject(event) {
     ? javascriptIcon
     : "";
 
-  let multiInput = document.querySelectorAll(".multi-input:checked");
-  if (multiInput.length === 0) {
-    return alert("Select at least one technology used.");
-  }
-
   // membuat url gambar dan menampilkan gambar yg dipilih pertama
   image = URL.createObjectURL(image[0]);
   console.log(image);
 
-  let inputStartDate = new Date(startDate);
-  let inputEndDate = new Date(endDate);
+  let mulai = new Date(startDate);
+  let akhir = new Date(endDate);
 
-  if (inputStartDate > inputEndDate) {
+  if (mulai > akhir) {
     return alert("Please input your dates correctly.");
   }
 
-  let selisih = Math.abs(
-    inputEndDate.getMonth() -
-      inputStartDate.getMonth() +
-      12 * (inputEndDate.getFullYear() - inputStartDate.getFullYear())
-  );
-  console.log(selisih);
+  let selisih = akhir.getTime() - mulai.getTime();
+  let days = selisih / (1000 * 60 * 60 * 24);
+  let weeks = Math.floor(days / 7);
+  let months = Math.floor(weeks / 4);
+  let years = Math.floor(months / 12);
+  let durasi = "";
+
+  if (days > 0) {
+    durasi = days + " hari";
+  }
+  if (weeks > 0) {
+    durasi = weeks + " minggu";
+  }
+  if (months > 0) {
+    durasi = months + " bulan";
+  }
+  if (years > 0) {
+    durasi = years + " tahun";
+  }
 
   let data = {
     name,
+    days,
+    weeks,
+    months,
+    years,
     selisih,
+    durasi,
     description,
     nodejs,
     golang,
@@ -97,7 +115,7 @@ function renderDataProject() {
             <a href="blog.html" target="_blank"
               ><h4>${dataProject[index].name}</h4></a
             >
-            <p>duration : ${dataProject[index].selisih} bulan</p>
+            <p>duration : ${dataProject[index].durasi}</p>
           </div>
 
           <div class="description">
