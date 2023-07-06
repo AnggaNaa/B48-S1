@@ -36,11 +36,6 @@ function addProject(event) {
   const reactJsIcon = '<i class="fa-brands fa-react"></i>';
   const javascriptIcon = '<i class="fa-brands fa-square-js"></i>';
 
-  // let multiInput = document.querySelectorAll(".multi-input:checked");
-  // if (multiInput.length === 0) {
-  //   return alert("Select at least one technology used.");
-  // }
-
   let nodejs = document.getElementById("node-js").checked ? nodeJsIcon : "";
   let golang = document.getElementById("golang").checked ? golangIcon : "";
   let reactjs = document.getElementById("react-js").checked ? reactJsIcon : "";
@@ -66,17 +61,14 @@ function addProject(event) {
   let years = Math.floor(months / 12);
   let durasi = "";
 
-  if (days > 0) {
-    durasi = days + " hari";
-  }
-  if (weeks > 0) {
-    durasi = weeks + " minggu";
-  }
-  if (months > 0) {
-    durasi = months + " bulan";
-  }
-  if (years > 0) {
-    durasi = years + " tahun";
+  if (days < 7) {
+    durasi = days + " Hari";
+  } else if (days >= 7 && weeks < 4) {
+    durasi = weeks + " Minggu";
+  } else if (weeks >= 4 && months <= 12) {
+    durasi = months + " Bulan";
+  } else {
+    durasi = years + " Tahun";
   }
 
   let data = {
