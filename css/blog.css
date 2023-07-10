@@ -43,3 +43,22 @@ div h1 {
 .paragraf-blog {
   text-align: justify;
 }
+
+@media only screen and (max-width: 900px) {
+  .header-blog {
+    display: block;
+  }
+  .header-blog .right-blog {
+    margin: 0;
+  }
+
+  .header-blog .right-blog h2 {
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .right-blog .right-icon-blog {
+    display: block;
+  }
+}

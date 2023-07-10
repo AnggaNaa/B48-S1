@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/toggle.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -21,15 +22,32 @@
           <li>
             <a href="https://dumbways.id/dashboard/student" target="_blank"><img src="assets/images/logo.png" alt="" /></a>
           </li>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="myproject.html">My Project</a></li>
+          <li class="item-collapse"><a class="active" href="index.html">Home</a></li>
+          <li class="item-collapse"><a href="myproject.html">My Project</a></li>
         </ul>
       </div>
 
-      <div class="nav-right">
+      <div class="nav-right item-collapse">
         <a href="contact.html">Contact Me</a>
       </div>
+
+      <div class="nav-right" id="barsmenu">
+        <button
+          style="background-color:transparent; 
+                 border: none; 
+                 cursor: pointer"
+                 onclick="openHamburger()">
+          <i class="fa-2x fa-solid fa-bars"></i>
+        </button>
+      </div>
     </nav>
+
+    <div class="hamburger-container" id="hamburger-container">
+      <a class="nav-active" href="index.html">HOME</a>
+      <a href="myproject.html" class="hamburger-active">MY PROJECT</a>
+      <a href="contact.html">
+        <button type="button">Contact Me</button></a>
+    </div>
 
     <div class="container">
       <div class="left">
@@ -70,5 +88,6 @@
         <p style="margin-top: -20px;">Fullstack Developer</p>
       </div>
     </div>
+    <script src="js/toggle.js"></script>
   </body>
 </html>

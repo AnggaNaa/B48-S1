@@ -43,6 +43,11 @@ function addProject(event) {
     ? javascriptIcon
     : "";
 
+  (" 2 buah data 1");
+
+  const data1 = 1;
+  const data2 = 2;
+
   // membuat url gambar dan menampilkan gambar yg dipilih pertama
   image = URL.createObjectURL(image[0]);
   console.log(image);

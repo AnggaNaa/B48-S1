@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/blog.css" />
+    <link rel="stylesheet" href="css/toggle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -28,15 +29,30 @@
               ><img src="assets/images/logo.png" alt=""
             /></a>
           </li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="myproject.html">My Project</a></li>
+          <li class="item-collapse"><a href="index.html">Home</a></li>
+          <li class="item-collapse"><a href="myproject.html">My Project</a></li>
         </ul>
       </div>
 
-      <div class="nav-right">
+      <div class="nav-right item-collapse">
         <a href="contact.html">Contact Me</a>
       </div>
+
+      <div class="nav-right" id="barsmenu">
+        <button
+          style="background-color: transparent; border: none; cursor: pointer"
+          onclick="openHamburger()"
+        >
+          <i class="fa-2x fa-solid fa-bars"></i>
+        </button>
+      </div>
     </nav>
+
+    <div class="hamburger-container" id="hamburger-container">
+      <a href="index.html">HOME</a>
+      <a href="myproject.html">MY PROJECT</a>
+      <a href="contact.html"> <button type="button">Contact Me</button></a>
+    </div>
 
     <div class="container-blog">
       <h1>Dumbways Web App</h1>
@@ -132,5 +148,6 @@
         </p>
       </div>
     </div>
+    <script src="js/toggle.js"></script>
   </body>
 </html>
