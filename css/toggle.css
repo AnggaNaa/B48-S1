@@ -36,6 +36,5 @@
 
 .hamburger-container button:hover {
   background-color: orangered;
-  border: none;
   transition: ease-out 1s;
 }
