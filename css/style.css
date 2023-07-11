@@ -163,23 +163,78 @@ textarea {
   resize: none;
 }
 
-/* styling responsive index.html */
+/* ---------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+/* --------------------------STYLING HUMBERGER NAV----------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+
+#barsmenu {
+  display: none;
+}
+
+.hamburger-nav-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+  animation-name: slide-in;
+  animation-duration: 0.5s;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.nav-active {
+  font-weight: bolder;
+}
+
+.hamburger-nav-container a {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  color: black;
+  background-color: #ffffff;
+}
+.hamburger-nav-container a:hover {
+  color: orangered;
+  transition: color 0.5s;
+}
+
+.hamburger-nav-container button {
+  background-color: black;
+  color: white;
+  padding: 5px 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+}
+
+.hamburger-nav-container button:hover {
+  background-color: orangered;
+  transition: background-color 0.5s;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+/* --------------------------styling responsive index.html----------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+
 @media only screen and (max-width: 900px) {
   #barsmenu {
-    display: block !important;
-    margin-right: 35px;
+    display: flex;
   }
-  #hamburger-container {
-    animation-name: slide-in;
-    animation-duration: 0.5s;
+  .hamburger-nav-container {
+    display: none;
   }
-  @keyframes slide-in {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  .hamburger-nav-container a {
+    display: flex;
   }
   .item-collapse {
     display: none;
@@ -240,7 +295,7 @@ textarea {
 }
 
 /* styling  responsive contact.html */
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 535px) {
   form {
     width: auto;
     margin: 20px;

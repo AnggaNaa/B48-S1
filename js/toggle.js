@@ -1,15 +1,16 @@
 let hamburgerIsOpen = false;
 
 function openHamburger() {
-  let hamburgerNavContainer = document.getElementById("hamburger-container");
-
+  let hamburgerNavContainer = document.getElementById(
+    "hamburger-nav-container"
+  );
   if (!hamburgerIsOpen) {
-    console.log(hamburgerIsOpen);
-    hamburgerNavContainer.style.display = "flex";
+    hamburgerNavContainer.style.display = "block";
     hamburgerIsOpen = true;
-  } else {
     console.log(hamburgerIsOpen);
+  } else {
     hamburgerNavContainer.style.display = "none";
     hamburgerIsOpen = false;
+    console.log(hamburgerIsOpen);
   }
 }

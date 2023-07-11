@@ -1,40 +1,52 @@
-#barsmenu {
+/* #barsmenu {
   display: none;
 }
 
-#hamburger-container {
-  display: none;
-}
-.hamburger-container {
+.hamburger-nav-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  gap: 1em;
   position: fixed;
-  background-color: #ffffff;
-  padding: 1em 0;
   box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+  animation-name: slide-in;
+  animation-duration: 0.5s;
 }
-
-.hamburger-container a:hover {
-  color: orangered;
-  transition: color 0.5s;
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .nav-active {
   font-weight: bolder;
 }
 
-.hamburger-container button {
+.hamburger-nav-container a {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  color: black;
+  background-color: #ffffff;
+}
+.hamburger-nav-container a:hover {
+  color: orangered;
+  transition: color 0.5s;
+}
+
+.hamburger-nav-container button {
   background-color: black;
   color: white;
   padding: 5px 13px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 15px;
+  cursor: pointer;
+  border: none;
 }
 
-.hamburger-container button:hover {
+.hamburger-nav-container button:hover {
   background-color: orangered;
-  transition: ease-out 1s;
-}
+  transition: background-color 0.5s;
+} */
