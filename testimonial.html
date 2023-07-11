@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/testimonial.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li>
+            <a href="https://dumbways.id/dashboard/student" target="_blank"
+              ><img src="assets/images/logo.png" alt=""
+            /></a>
+          </li>
+          <li class="item-collapse">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="item-collapse"><a href="myproject.html">My Project</a></li>
+          <li class="item-collapse">
+            <a class="active" href="#">Testimonial</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right item-collapse">
+        <a href="contact.html">Contact Me</a>
+      </div>
+
+      <div class="nav-right" id="barsmenu">
+        <button
+          style="background-color: transparent; border: none; cursor: pointer"
+          onclick="openHamburger()"
+        >
+          <i class="fa-2x fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+      <a href="index.html">HOME</a>
+      <a href="myproject.html">MY PROJECT</a>
+      <a class="nav-active" href="#">TESTIMONIAL</a>
+      <a href="contact.html"> <button type="button">Contact Me</button></a>
+    </div>
+    <div class="parent-testimonial">
+      <h1>MY TESTIMONIAL</h1>
+      <div class="container-testimonial" id="container-testimonials">
+        <!-- <div class="card-testimonial">
+          <img
+            src="assets/images/luffy.jpg"
+            alt=""
+            class="profile-testimonial"
+          />
+          <p class="quote">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+            lectus eu libero venenatis gravida eget vel odio.
+          </p>
+          <p class="author">- Monkey D. Luffy</p>
+        </div>
+
+        <div class="card-testimonial">
+          <img
+            src="assets/images/profile/profile.png"
+            alt=""
+            class="profile-testimonial"
+          />
+          <p class="quote">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+            lectus eu libero venenatis gravida eget vel odio.
+          </p>
+          <p class="author">- Monkey D. Luffy</p>
+        </div>
+
+        <div class="card-testimonial">
+          <img
+            src="assets/images/profile/profile.png"
+            alt=""
+            class="profile-testimonial"
+          />
+          <p class="quote">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+            lectus eu libero venenatis gravida eget vel odio.
+          </p>
+          <p class="author">- Monkey D. Luffy</p>
+        </div> 
+        <div class="card-testimonial">
+            <img
+              src="assets/images/profile/profile.png"
+              alt=""
+              class="profile-testimonial"
+            />
+            <p class="quote">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+              lectus eu libero venenatis gravida eget vel odio.
+            </p>
+            <p class="author">- Monkey D. Luffy</p>
+        </div> -->
+      </div>
+    </div>
+    <script src="js/toggle.js"></script>
+    <script src="js/testimonial.js"></script>
+  </body>
+</html>
