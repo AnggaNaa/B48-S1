@@ -60,7 +60,7 @@ class CompanyTestimonials extends Testimonial {
   }
 
   get author() {
-    return this.#company + " Company";
+    return this.#company + " [Company]";
   }
 }
 
@@ -74,7 +74,7 @@ const testimonial2 = new AuthorTestimonials(
   "Aku Tidak Akan Kalah Lagi!",
   "https://fyine.com/wp-content/uploads/2020/10/20201002_071603.jpg"
 );
-const testimonial3 = new AuthorTestimonials(
+const testimonial3 = new CompanyTestimonials(
   "Nami Sang Navigator",
   "Si Pencinta Uang dan Jeruk",
   "https://fyine.com/wp-content/uploads/2020/10/20201002_071619.jpg"
