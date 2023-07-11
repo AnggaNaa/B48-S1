@@ -1,6 +1,3 @@
-body {
-  background-color: rgb(255, 255, 255);
-}
 .parent-testimonial {
   margin: 2em;
 }
@@ -14,7 +11,6 @@ body {
 .container-testimonial {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: white;
   justify-content: center;
   gap: 1.3em;
 }
@@ -24,7 +20,7 @@ body {
   height: 18em;
   box-shadow: 0px 2px 8px 0px rgba(111, 111, 111, 0.2);
   padding: 1em;
-  background-color: #d6c8b0;
+  background-color: whitesmoke;
 }
 
 .card-testimonial img {
