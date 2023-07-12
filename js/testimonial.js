@@ -162,8 +162,7 @@ function stars(rating) {
                                     class="profile-testimonial"
                                 />
                                 <p class="quote">${item.quote}</p>
-                                <p class="author">- ${item.author}</p>
-                                <p class="author">${item.rating} <i class="fa-solid fa-star"> from ${item.author}</i></p>
+                                <p class="author">${item.rating} <i class="fa-solid fa-star"></i> from ${item.author}</p>
                             </div>
                         `;
     });
