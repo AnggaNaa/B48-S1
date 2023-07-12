@@ -271,6 +271,14 @@ textarea {
     width: 23em;
     margin: auto;
   }
+
+  form {
+    padding: 2em;
+  }
+
+  form h1 {
+    margin-top: auto;
+  }
 }
 
 @media only screen and (max-width: 615px) {
@@ -317,5 +325,6 @@ textarea {
   form {
     width: auto;
     margin: 20px;
+    padding: 1em;
   }
 }
