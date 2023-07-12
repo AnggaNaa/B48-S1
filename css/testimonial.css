@@ -5,12 +5,42 @@
 .parent-testimonial h1 {
   margin: 0;
   text-align: center;
-  padding: 1em;
+  font-weight: bolder;
+}
+
+.parent-testimonial h4 {
+  text-align: center;
+}
+
+#stars-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+#stars-buttons button {
+  padding: 0.8em 1.2em;
+  border: none;
+  border-radius: 0.25em;
+  background-color: black;
+  color: white;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+}
+
+#stars-buttons button:hover {
+  background-color: orangered;
+}
+
+#stars-buttons i {
+  color: white;
 }
 
 .container-testimonial {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1.3em;
 }
@@ -20,7 +50,7 @@
   height: 18em;
   box-shadow: 0px 2px 8px 0px rgba(111, 111, 111, 0.2);
   padding: 1em;
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-testimonial img {
@@ -41,15 +71,7 @@
 .card-testimonial .author {
   font-weight: bolder;
   text-align: end;
-}
-
-@media only screen and (max-width: 1200px) {
-  .container-testimonial {
-    grid-template-columns: repeat(2, 0.1fr);
-  }
-  .card-testimonial {
-    width: 20em;
-  }
+  font-style: italic;
 }
 
 @media only screen and (max-width: 750px) {

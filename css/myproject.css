@@ -39,6 +39,7 @@
   margin-top: 5px;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 0 3px #c1c1c1;
 }
 
 .label-image label p {
@@ -62,7 +63,7 @@
 
 .pembungkus-container-project {
   padding: 80px;
-  background-color: aliceblue;
+  background-color: rgb(242, 248, 254);
 }
 
 .pembungkus-container-project h1 {
