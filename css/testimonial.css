@@ -51,6 +51,7 @@
   box-shadow: 0px 2px 8px 0px rgba(111, 111, 111, 0.2);
   padding: 1em;
   background-color: rgb(255, 255, 255);
+  transition: 0.3s;
 }
 
 .card-testimonial img {
@@ -61,7 +62,6 @@
 
 .card-testimonial:hover {
   transform: scale(1.03);
-  transition: 0.5s;
 }
 
 .card-testimonial p {

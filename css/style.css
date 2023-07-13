@@ -53,11 +53,11 @@ nav ul li .active {
 
 nav ul li a {
   color: black;
+  transition: color 0.5s ease-in-out;
 }
 
 nav ul li a:hover {
   color: orange;
-  transition: color 0.5s ease-in-out;
 }
 
 .nav-right {
@@ -65,16 +65,25 @@ nav ul li a:hover {
   margin-right: 45px;
 }
 
+.nav-right button {
+  border: none;
+}
+
+#dark-mode {
+  background-color: transparent;
+  margin: 2em;
+}
+
 .nav-right a {
   background-color: black;
   color: white;
   padding: 8px 20px;
   border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .nav-right a:hover {
   background-color: orangered;
-  transition: background-color 0.5s ease-in-out;
 }
 
 .container {
