@@ -40,7 +40,7 @@ async function showAll() {
 // eksekusi awal / default
 showAll();
 
-async function getFilteredTestimonials(rating) {
+async function stars(rating) {
   const cardData = await promise;
 
   const testimonialFiltered = cardData.filter((item) => {
