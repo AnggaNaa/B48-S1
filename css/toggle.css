@@ -1,52 +1,104 @@
-/* #barsmenu {
-  display: none;
-}
-
-.hamburger-nav-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: fixed;
-  box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
-  animation-name: slide-in;
-  animation-duration: 0.5s;
-}
-@keyframes slide-in {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.nav-active {
-  font-weight: bolder;
-}
-
-.hamburger-nav-container a {
-  display: none;
-  justify-content: center;
-  padding: 10px;
-  color: black;
-  background-color: #ffffff;
-}
-.hamburger-nav-container a:hover {
-  color: orangered;
-  transition: color 0.5s;
-}
-
-.hamburger-nav-container button {
-  background-color: black;
-  color: white;
-  padding: 5px 13px;
-  border-radius: 8px;
-  font-size: 15px;
+#theme-switch {
+  background-color: transparent;
+  margin-right: 2em;
   cursor: pointer;
-  border: none;
 }
+.dark-mode {
+  /* #dark-logo {
+    display: block;
+  } */
 
-.hamburger-nav-container button:hover {
-  background-color: orangered;
-  transition: background-color 0.5s;
-} */
+  background: linear-gradient(
+      45deg,
+      transparent 49%,
+      #0f100f 49% 51%,
+      transparent 51%
+    ),
+    linear-gradient(-45deg, transparent 49%, #0f100f 49% 51%, transparent 51%);
+  background-size: 3em 3em;
+  background-color: #202220;
+  opacity: 1;
+
+  & .container {
+    background-color: #0f100f;
+    box-shadow: none;
+  }
+  & nav {
+    background-color: #0f100f;
+  }
+  & nav ul li a.active {
+    color: rgb(255 135 92);
+  }
+
+  & nav ul li a {
+    color: antiquewhite;
+  }
+
+  & nav .nav-right button i {
+    color: white;
+  }
+  .container .left h1 {
+    color: antiquewhite;
+  }
+  & .container .left p {
+    color: #eaf3ea;
+  }
+  .contact-cv a,
+  i {
+    color: #eaf3ea;
+  }
+  .right,
+  h2,
+  p {
+    box-shadow: none;
+    color: antiquewhite;
+  }
+
+  /* -------------styling myproject.html------------- */
+  & form {
+    background-color: #8d8d8d;
+  }
+  .pembungkus-container-project {
+    padding: 80px;
+    background-color: #202220;
+  }
+
+  .container-project .card-project {
+    background-color: #8d8d8d;
+    box-shadow: none;
+  }
+  .container-project .card-project .description p {
+    color: black !important;
+  }
+  .container-project .card-project .duration h4 {
+    color: black;
+  }
+
+  /* -------------styling testimonial.html------------- */
+  .parent-testimonial h1,
+  h4 {
+    color: antiquewhite;
+  }
+  .card-testimonial {
+    background-color: #8d8d8d;
+  }
+  .card-testimonial p,
+  i {
+    color: black;
+  }
+
+  /* -------------styling blog.html------------- */
+  .container-blog {
+    background-color: #0f100f;
+    padding: 1em 3em 2em 3em;
+  }
+  .container-blog h1 {
+    color: antiquewhite;
+  }
+  .header-blog .right-blog {
+    margin-left: 10px;
+  }
+  .container-blog .header-blog .right-blog i {
+    color: #eaf3ea;
+  }
+}

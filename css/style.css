@@ -61,7 +61,7 @@ nav ul li a:hover {
 }
 
 .nav-right {
-  text-align: end;
+  display: flex;
   margin-right: 45px;
 }
 
@@ -69,9 +69,9 @@ nav ul li a:hover {
   border: none;
 }
 
-#dark-mode {
+#theme-switch {
   background-color: transparent;
-  margin: 2em;
+  margin-right: 2em;
 }
 
 .nav-right a {

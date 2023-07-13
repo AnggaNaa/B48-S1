@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/blog.css" />
+    <link rel="stylesheet" href="css/toggle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -36,17 +37,18 @@
         </ul>
       </div>
 
-      <div class="nav-right item-collapse">
-        <a href="contact.html">Contact Me</a>
-      </div>
-
-      <div class="nav-right" id="barsmenu">
+      <div class="nav-right">
+        <button id="theme-switch">
+          <i class="fa-solid fa-moon fa-2xl fa-fw"></i>
+        </button>
         <button
+          id="barsmenu"
           style="background-color: transparent; border: none; cursor: pointer"
           onclick="openHamburger()"
         >
           <i class="fa-2x fa-solid fa-bars"></i>
         </button>
+        <a href="contact.html" class="item-collapse">Contact Me</a>
       </div>
     </nav>
 
