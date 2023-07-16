@@ -31,10 +31,10 @@ function addProject(event) {
   let description = document.getElementById("input-description").value;
   let image = document.getElementById("input-image").files;
 
-  const nodeJsIcon = '<i class="fa-brands fa-node-js"></i>';
-  const golangIcon = '<i class="fa-brands fa-golang"></i>';
-  const reactJsIcon = '<i class="fa-brands fa-react"></i>';
-  const javascriptIcon = '<i class="fa-brands fa-square-js"></i>';
+  const nodeJsIcon = '<i class="fa-brands fa-node-js fs-3"></i>';
+  const golangIcon = '<i class="fa-brands fa-golang fs-3"></i>';
+  const reactJsIcon = '<i class="fa-brands fa-react fs-3"></i>';
+  const javascriptIcon = '<i class="fa-brands fa-square-js fs-3"></i>';
 
   let nodejs = document.getElementById("node-js").checked ? nodeJsIcon : "";
   let golang = document.getElementById("golang").checked ? golangIcon : "";
@@ -42,11 +42,6 @@ function addProject(event) {
   let javascript = document.getElementById("javascript").checked
     ? javascriptIcon
     : "";
-
-  (" 2 buah data 1");
-
-  const data1 = 1;
-  const data2 = 2;
 
   // membuat url gambar dan menampilkan gambar yg dipilih pertama
   image = URL.createObjectURL(image[0]);
@@ -103,7 +98,37 @@ function renderDataProject() {
 
   for (let index = 0; index < dataProject.length; index++) {
     document.getElementById("contents").innerHTML += `
-        <div class="card-project">
+
+    <div class="card card-project">
+          <img src="${dataProject[index].image}" class="card-img-top" alt="" />
+          <div class="card-title">
+            <p class="card-title fs-6 fw-bold mb-0">
+              ${dataProject[index].name}
+            </p>
+            <div class="card-duration">durasi: ${dataProject[index].durasi}</div>
+            <p class="card-text my-2">
+            ${dataProject[index].description}
+            </p>
+            <div class="d-flex gap-4 my-3" style="width: 100%">
+            ${dataProject[index].nodejs}
+            ${dataProject[index].golang}
+            ${dataProject[index].reactjs}
+            ${dataProject[index].javascript}
+            </div>
+            <div class="d-flex gap-2" style="width: 100%">
+              <button class="btn btn-dark" style="width: 100%">edit</button>
+              <button class="btn btn-dark" style="width: 100%">delete</button>
+            </div>
+          </div>
+    </div>
+
+    
+    `;
+  }
+}
+
+{
+  /* <div class="card-project">
           <div class="image-project">
             <img src="${dataProject[index].image}" alt="" />
           </div>
@@ -132,7 +157,32 @@ function renderDataProject() {
             <button>edit</button>
             <button>delete</button>
           </div>
+        </div> */
+}
+
+{
+  /* <div class="col">
+    <div class="card">
+      <img src="${dataProject[index].image}" class="card-img-top" alt="" />
+      <div class="card-body">
+        <h5 class="card-title">${dataProject[index].name}</h5>
+        <div class="mb-2 fw-light">durasi: ${dataProject[index].durasi}</div>
+        <p class="card-text">
+        ${dataProject[index].description}
+        </p>
+                <div class="d-flex gap-4 mb-3" style="width: 100%">
+                      ${dataProject[index].nodejs}
+                      ${dataProject[index].golang}
+                      ${dataProject[index].reactjs}
+                      ${dataProject[index].javascript}
+                </div>
+        <div class="d-flex gap-2" style="width: 100%">
+          <button class="btn btn-dark" style="width: 100%">edit</button>
+          <button class="btn btn-dark" style="width: 100%">
+            delete
+          </button>
         </div>
-    `;
-  }
+      </div>
+    </div>
+  </div> */
 }

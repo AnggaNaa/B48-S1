@@ -14,7 +14,9 @@
 //   get image() {
 //     return this.#image;
 //   }
-
+// }
+// let myTestimonial = new Testimonial("ini quote", "ini image");
+// console.log(myTestimonial.quote + myTestimonial.image);
 //   // This is an abstract method that subclasses will implement
 //   get author() {
 //     throw new Error("getAuthor() method must be implemented");
