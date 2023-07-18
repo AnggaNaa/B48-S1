@@ -4,7 +4,7 @@
     <title>Contact Me | Task Chapter 2</title>
     <link
       rel="shortcut icon"
-      href="/assets/images/favicon.ico"
+      href="public/images/favicon.png"
       type="image/x-icon"
     />
     <link
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://dumbways.id/" target="_blank">
-          <img src="/assets/images/logo.png" />
+          <img src="public/images/logo.png" />
         </a>
         <button
           class="navbar-toggler"
@@ -31,16 +31,22 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          class="collapse navbar-collapse text-center"
+          id="navbarSupportedContent"
+        >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">HOME</a>
+              <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add-project.html">ADD PROJECT</a>
+              <a class="nav-link" href="add-project">ADD PROJECT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
             <a class="btn btn-dark" href="#" role="button">Contact Me</a>
           </div>
         </div>
@@ -53,22 +59,22 @@
 
         <div class="mb-3">
           <label for="name" class="form-label fw-bold">Name</label>
-          <input type="text" class="form-control" id="name" required />
+          <input type="text" class="form-control" id="input-name" required />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label fw-bold">Email</label>
-          <input type="email" class="form-control" id="email" required />
+          <input type="email" class="form-control" id="input-email" required />
         </div>
 
         <div class="mb-3">
           <label for="phone" class="form-label fw-bold">Phone Number</label>
-          <input type="tel" class="form-control" id="phone" required />
+          <input type="number" class="form-control" id="input-phone" required />
         </div>
 
         <div class="mb-3">
           <label for="subject" class="form-label fw-bold">Subject</label>
-          <select class="form-select" id="subject" required>
+          <select class="form-select" id="input-subject" required>
             <option value="" hidden></option>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
@@ -80,8 +86,8 @@
           <label for="message" class="form-label fw-bold">Your Message</label>
           <textarea
             class="form-control"
-            id="message"
-            style="resize: none"
+            id="input-message"
+            style="resize: none; height: 100px"
             required
           ></textarea>
         </div>
@@ -103,6 +109,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    <script src="/public/js/contact.js"></script>
+    <script src="public/js/contact.js"></script>
   </body>
 </html>

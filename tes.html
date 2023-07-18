@@ -3,6 +3,12 @@
   <head>
     <title>Home | Task Chapter 2</title>
     <link
+      rel="shortcut icon"
+      href="public/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
@@ -19,7 +25,7 @@
   <body class="bg-body-tertiary">
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 py-3">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="https://dumbways.id/" target="_blank">
           <img src="public/images/logo.png" />
         </a>
         <button
@@ -33,199 +39,119 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          class="collapse navbar-collapse text-center"
+          id="navbarSupportedContent"
+        >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active fw-bold" aria-current="page" href="/"
-                >Home</a
-              >
+              <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add-project">Add Project</a>
+              <a class="nav-link" href="add-project">ADD PROJECT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
             <a class="btn btn-dark" href="contact" role="button">Contact Me</a>
           </div>
         </div>
       </div>
     </nav>
 
-    <div class="bg-secondary-subtle p-5">
-      <div class="card">
-        <div class="card-body d-flex flex-lg-row flex-sm-column flex-column">
-          <div class="p-4 align-items-center">
-            <h1>Hi Welcome to my hut</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Posuere morbi leo urna molestie at elementum eu facilisis. Aliquet
-              porttitor lacus luctus accumsan tortor posuere ac ut consequat.
-              Scelerisque mauris pellentesque pulvinar pellentesque habitant
-              morbi tristique senectus et. Id ornare arcu odio ut sem nulla
-              pharetra. Cursus metus aliquam eleifend mi in.
-            </p>
-            <div class="d-flex flex-row flex-wrap gap-3 my-3">
-              <button type="button" class="btn btn-dark rounded-pill">
-                contact
-              </button>
-              <a
-                href="#"
-                class="my-auto"
-                style="text-decoration: none; color: #000000"
-                >download
-                <i class="fa-solid fa-download" style="color: #000000"></i
-              ></a>
-            </div>
-            <div class="my-3">
-              <a href="https://linkedin.com"
-                ><img
-                  src="public/images/icons8-linkedin-circled.svg"
-                  style="height: 3em"
-              /></a>
-              <a href="https://instagram.com"
-                ><img
-                  src="public/images/icons8-instagram-circle.svg"
-                  style="height: 3em"
-              /></a>
-              <a href="https://facebook.com"
-                ><img
-                  src="public/images/icons8-facebook.svg"
-                  style="height: 3em"
-              /></a>
-              <a href="https://twitter.com"
-                ><img
-                  src="public/images/icons8-twitter-circled.svg"
-                  style="height: 3em"
-              /></a>
-            </div>
-          </div>
-
-          <div
-            class="card justify-content-center"
-            style="max-width: 100%; width: 48em"
-          >
+    <div class="bg-secondary-subtle p-sm-5">
+      <div class="container bg-light">
+        <div class="text-center">
+          <h2 class="fw-bold p-5">Dumbways Web App</h2>
+        </div>
+        <div class="d-flex flex-xl-row flex-column">
+          <div class="img-blog mx-lg-5 m-2">
             <img
-              class="card-img-top"
-              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="photo"
+              src="public/images/coding.jpg"
+              style="width: 100%; height: 25em; object-fit: cover"
+              alt=""
             />
-            <div class="card-body">
-              <div class="fw-bold text-center" style="align-self: center">
-                Rhoma Irama
-              </div>
-              <div class="text-center" style="align-self: center">
-                Fullstack Developer
-              </div>
-            </div>
+          </div>
+          <div class="fs-6 p-5">
+            <h3 class="fw-bold mb-3">Duration</h3>
+            <p>
+              <i class="fa-regular fa-calendar-days fa-2x me-3"></i> 12 Jan 2021
+              - 11 Feb 2021
+            </p>
+            <p><i class="fa-solid fa-clock fa-2x me-3"></i> 1 month</p>
+            <h3 class="fw-bold mb-3 me-3">Tehcnologies</h3>
+            <p>
+              <i class="fa-brands fa-react fa-2x me-3"></i> React JS
+              <i class="fa-brands fa-node-js fa-2x mx-3"></i> Node JS
+            </p>
+            <p>
+              <i class="fa-brands fa-square-js fa-2x me-3"></i> Javascript
+              <i class="fa-brands fa-golang fa-2x mx-3"></i> Golang
+            </p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="py-5">
-      <h1 class="fw-bold text-center">MY PROJECTS</h1>
-      <div class="p-5">
-        <div class="row row-cols-md-3 row-cols-sm-1 row-cols-1 g-4">
-          <div class="col">
-            <div class="card">
-              <img src="/assets/images/1.jpg" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Dumbways Mobile App - 2021</h5>
-                <div class="mb-2 fw-light">durasi: 3 bulan</div>
-                <p class="card-text">
-                  App that is used by dumbways student, it was deployed and can
-                  be downloaded on playstore. Happy download
-                </p>
-                <div class="d-flex gap-2" style="width: 100%">
-                  <button class="btn btn-dark" style="width: 100%">edit</button>
-                  <button class="btn btn-dark" style="width: 100%">
-                    delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <img src="/assets/images/2.jpg" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Dumbways Mobile App - 2021</h5>
-                <div class="mb-2 fw-light">durasi: 3 bulan</div>
-                <p class="card-text">
-                  App that is used by dumbways student, it was deployed and can
-                  be downloaded on playstore. Happy download
-                </p>
-                <div class="d-flex gap-2" style="width: 100%">
-                  <button class="btn btn-dark" style="width: 100%">edit</button>
-                  <button class="btn btn-dark" style="width: 100%">
-                    delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <img src="/assets/images/3.jpg" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Dumbways Mobile App - 2021</h5>
-                <div class="mb-2 fw-light">durasi: 3 bulan</div>
-                <p class="card-text">
-                  App that is used by dumbways student, it was deployed and can
-                  be downloaded on playstore. Happy download
-                </p>
-                <div class="d-flex gap-2" style="width: 100%">
-                  <button class="btn btn-dark" style="width: 100%">edit</button>
-                  <button class="btn btn-dark" style="width: 100%">
-                    delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <img src="/assets/images/img6.png" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Dumbways Mobile App - 2021</h5>
-                <div class="mb-2 fw-light">durasi: 3 bulan</div>
-                <p class="card-text">
-                  App that is used by dumbways student, it was deployed and can
-                  be downloaded on playstore. Happy download
-                </p>
-                <div class="d-flex gap-2" style="width: 100%">
-                  <button class="btn btn-dark" style="width: 100%">edit</button>
-                  <button class="btn btn-dark" style="width: 100%">
-                    delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <img src="/assets/images/img4.png" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Dumbways Mobile App - 2021</h5>
-                <div class="mb-2 fw-light">durasi: 1 bulan</div>
-                <p class="card-text">
-                  App that is used by dumbways student, it was deployed and can
-                  be downloaded on playstore. Happy download
-                </p>
-                <div class="d-flex gap-2" style="width: 100%">
-                  <button class="btn btn-dark" style="width: 100%">edit</button>
-                  <button class="btn btn-dark" style="width: 100%">
-                    delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="text-blog p-lg-5 px-3">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis optio
+          iste sapiente provident fugit, impedit adipisci deserunt obcaecati
+          voluptatum quo, hic culpa, repudiandae consectetur quia itaque eius
+          accusamus natus unde. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Id sunt porro cupiditate, nesciunt totam alias
+          labore fugiat? Accusantium a voluptates quibusdam tempora, eveniet
+          quasi sit debitis eaque ut in magnam? Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Dolor minima quia recusandae doloribus
+          facilis fugit optio, quaerat fugiat quod architecto id dignissimos
+          cupiditate perferendis similique saepe totam, nulla nihil ipsam. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Incidunt labore
+          optio, eos qui quasi, soluta fugit totam tempore, in amet unde
+          repellat perferendis quibusdam ducimus velit deserunt maxime possimus
+          facilis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Veritatis accusamus eius, consequuntur possimus similique tenetur
+          fugiat incidunt minima necessitatibus eum ab enim reiciendis autem id
+          dicta eaque libero. Ea ex ducimus cupiditate veniam voluptatibus,
+          labore nam eius vero debitis, minima doloremque, nostrum sit et
+          consequuntur in velit totam nemo adipisci possimus consectetur placeat
+          odit. Sed voluptas illo, praesentium, sapiente magni pariatur eveniet
+          maiores nesciunt quibusdam inventore eligendi ex, aliquid fugiat
+          nihil. Voluptates ipsa magnam rerum atque in magni, harum repudiandae
+          ipsam quae quo similique! Neque quibusdam facilis debitis non
+          repellendus asperiores laudantium obcaecati nihil necessitatibus
+          placeat, eum animi, veniam harum. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Officia praesentium eum perspiciatis
+          quas, nemo magni explicabo aspernatur natus dolore, hic totam,
+          adipisci id. Obcaecati sequi, officiis explicabo in ducimus et aliquid
+          inventore molestiae nam suscipit quisquam accusamus? Ratione autem
+          dicta dolores animi illo veniam pariatur ipsa eveniet nulla id velit
+          minima totam mollitia beatae porro iusto, numquam saepe iure vel
+          voluptates quisquam et? Tempore, illum unde, ea explicabo odit
+          laudantium totam, vero accusamus natus aliquid eveniet neque odio.
+          Incidunt ducimus quia quibusdam ab perferendis culpa dolores
+          accusantium nesciunt voluptatibus est necessitatibus quod omnis, sed
+          deserunt asperiores cumque quo odio. Possimus quod debitis hic
+          voluptates earum minima, saepe quasi. Amet error nemo sapiente quidem,
+          nesciunt, ea cupiditate eos ab temporibus reiciendis doloribus quaerat
+          maiores ex. Quia nihil hic ratione facilis quas fuga et ducimus
+          expedita ad omnis quis corporis dignissimos accusamus minus doloribus
+          aut, quidem ipsa voluptatibus officia voluptas temporibus? Ab tempore
+          vitae illo iusto, exercitationem debitis neque, aspernatur sequi fugit
+          assumenda amet voluptatibus veritatis laborum nam, non dolorem eius
+          perspiciatis facere possimus maxime pariatur! Eius, quae? Doloremque
+          sunt dolorum magni aperiam, iste illum optio incidunt officiis
+          placeat, quasi ab asperiores exercitationem. Maxime enim ratione
+          corrupti iure iusto, sit, quaerat aliquid vel dolor ipsum ea tenetur
+          in. Nobis aliquam facilis dolor eaque dolorem fugit veniam, doloribus
+          quis reprehenderit, quia, mollitia pariatur provident aspernatur eum
+          voluptate at esse illum distinctio impedit repudiandae dicta fugiat!
+          Illo numquam quisquam cupiditate itaque reiciendis! Adipisci veritatis
+          numquam incidunt eum in iste, ipsa cumque. Molestiae delectus labore
+          nulla voluptas temporibus optio quisquam, ratione libero quidem
+          exercitationem repudiandae architecto explicabo assumenda rerum saepe
+          perferendis quasi? Vel delectus obcaecati quos nulla dolor natus
+          eligendi saepe consequuntur aliquam blanditiis deserunt culpa veniam,
+          libero ipsa voluptates maxime, nisi corporis veritatis minima totam
+          temporibus itaque! Accusamus quos placeat quae ipsa, voluptas omnis!
         </div>
       </div>
     </div>

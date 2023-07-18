@@ -100,10 +100,11 @@ function renderDataProject() {
     document.getElementById("contents").innerHTML += `
 
     <div class="card card-project">
-          <img src="${dataProject[index].image}" class="card-img-top" alt="" />
+          <img src="${dataProject[index].image}" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              ${dataProject[index].name}
+            <a href="blog-detail" target="_blank"
+            >${dataProject[index].name}</a>
             </p>
             <div class="card-duration">durasi: ${dataProject[index].durasi}</div>
             <p class="card-text my-2">
@@ -115,7 +116,7 @@ function renderDataProject() {
             ${dataProject[index].reactjs}
             ${dataProject[index].javascript}
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>

@@ -4,10 +4,10 @@
     <title>Home | Task Chapter 2</title>
     <link
       rel="shortcut icon"
-      href="/assets/images/favicon.ico"
+      href="public/images/favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://dumbways.id/" target="_blank">
-          <img src="/assets/images/logo.png" />
+          <img src="public/images/logo.png" />
         </a>
         <button
           class="navbar-toggler"
@@ -50,16 +50,14 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add-project.html">ADD PROJECT</a>
+              <a class="nav-link" href="add-project">ADD PROJECT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">TESTIMONIAL</a>
+              <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
           <div class="d-flex justify-content-center">
-            <a class="btn btn-dark" href="contact.html" role="button"
-              >Contact Me</a
-            >
+            <a class="btn btn-dark" href="contact" role="button">Contact Me</a>
           </div>
         </div>
       </div>
@@ -85,55 +83,56 @@
               gomu to iu akuma no mi o tabemashita. Kono kajitsu wa kare ni
               kyokugei-shi no chikara o ataeru.
             </p>
-            <div class="d-flex flex-row flex-wrap gap-3 my-3">
-              <button type="button" class="btn btn-dark rounded-pill px-4">
+            <div class="button-contact d-flex flex-row flex-wrap gap-3 my-3">
+              <button
+                type="button"
+                onclick="location.href='https://api.whatsapp.com/send/?phone=6281211705891&text&type=phone_number&app_absent=0'"
+                class="btn btn-dark rounded-pill px-4"
+              >
                 contact
               </button>
               <a
-                href="#"
+                href="https://id.wikipedia.org/wiki/Monkey_D._Luffy"
+                target="_blank"
                 class="my-auto"
                 style="text-decoration: none; color: #000000"
                 >download
                 <i class="fa-solid fa-download" style="color: #000000"></i
               ></a>
             </div>
-            <div class="my-3 text-center text-lg-start">
-              <a href="https://linkedin.com" target="_blank"
-                ><img
-                  src="/assets/images/icons8-linkedin-circled.svg"
-                  style="height: 3em"
-              /></a>
-              <a href="https://instagram.com" target="_blank"
-                ><img
-                  src="/assets/images/icons8-instagram-circle.svg"
-                  style="height: 3em"
-              /></a>
+            <div class="social-media mt-lg-5 my-4 text-center text-lg-start">
+              <a
+                href="https://www.linkedin.com/in/angganurardiansyah/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in fa-2xl pe-3"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/angganurardiansyah/"
+                target="_blank"
+                ><i class="fa-brands fa-instagram fa-2xl pe-3"></i
+              ></a>
               <a href="https://facebook.com" target="_blank"
-                ><img
-                  src="/assets/images/icons8-facebook.svg"
-                  style="height: 3em"
-              /></a>
+                ><i class="fa-brands fa-youtube fa-2xl pe-3"></i
+              ></a>
               <a href="https://twitter.com" target="_blank"
-                ><img
-                  src="/assets/images/icons8-twitter-circled.svg"
-                  style="height: 3em"
-              /></a>
+                ><i class="fa-brands fa-twitter fa-2xl pe-3"></i
+              ></a>
             </div>
           </div>
 
           <div
             class="card justify-content-center"
-            style="max-width: 80%; width: 48em; flex: 30%"
+            style="width: 18em; flex: 30%"
           >
             <img
               class="card-img-top"
               style="width: 100%; height: 380px; object-fit: cover"
-              src="/assets/images/luffy.jpg"
+              src="public/images/luffy.jpg"
               alt="photo luffy"
             />
             <div class="card-body">
               <div class="fw-bold text-center" style="align-self: center">
-                <h2>Monkey D.Luffy</h2>
+                <h2 class="fw-bold">Monkey D.Luffy</h2>
               </div>
               <div class="text-center" style="align-self: center">
                 Fullstack Developer
@@ -145,13 +144,15 @@
     </div>
 
     <div class="container-xl container-md-fluid d-flex flex-column py-5">
-      <h1 class="fw-bold text-center">MY PROJECTS</h1>
+      <h1 class="fw-bold text-center">MY PROJECT</h1>
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         <div class="card card-project">
-          <img src="/assets/images/img1.png" class="card-img-top" alt="" />
+          <img src="public/images/img1.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              Dumbways Mobile App - 2021
+              <a href="blog-detail/1" target="_blank"
+                >Dumbways Mobile App - 2021</a
+              >
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -163,7 +164,7 @@
               <i class="fa-brands fa-android fs-3"></i>
               <i class="fa-brands fa-java fs-3"></i>
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
@@ -171,10 +172,12 @@
         </div>
 
         <div class="card card-project">
-          <img src="/assets/images/img2.png" class="card-img-top" alt="" />
+          <img src="public/images/img2.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              Dumbways Mobile App - 2021
+              <a href="blog-detail/2" target="_blank"
+                >Dumbways Mobile App - 2021</a
+              >
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -186,7 +189,7 @@
               <i class="fa-brands fa-android fs-3"></i>
               <i class="fa-brands fa-java fs-3"></i>
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
@@ -194,10 +197,12 @@
         </div>
 
         <div class="card card-project">
-          <img src="/assets/images/img3.png" class="card-img-top" alt="" />
+          <img src="public/images/img3.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              Dumbways Mobile App - 2021
+              <a href="blog-detail/3" target="_blank"
+                >Dumbways Mobile App - 2021</a
+              >
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -209,7 +214,7 @@
               <i class="fa-brands fa-android fs-3"></i>
               <i class="fa-brands fa-java fs-3"></i>
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
@@ -217,10 +222,12 @@
         </div>
 
         <div class="card card-project">
-          <img src="/assets/images/img4.png" class="card-img-top" alt="" />
+          <img src="public/images/img4.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              Dumbways Mobile App - 2021
+              <a href="blog-detail/4" target="_blank"
+                >Dumbways Mobile App - 2021</a
+              >
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -232,7 +239,7 @@
               <i class="fa-brands fa-android fs-3"></i>
               <i class="fa-brands fa-java fs-3"></i>
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
@@ -240,10 +247,12 @@
         </div>
 
         <div class="card card-project">
-          <img src="/assets/images/img5.png" class="card-img-top" alt="" />
+          <img src="public/images/img5.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              Dumbways Mobile App - 2021
+              <a href="blog-detail/5" target="_blank"
+                >Dumbways Mobile App - 2021</a
+              >
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -255,7 +264,7 @@
               <i class="fa-brands fa-android fs-3"></i>
               <i class="fa-brands fa-java fs-3"></i>
             </div>
-            <div class="d-flex gap-2" style="width: 100%">
+            <div class="btn-card-index d-flex gap-2" style="width: 100%">
               <button class="btn btn-dark" style="width: 100%">edit</button>
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
