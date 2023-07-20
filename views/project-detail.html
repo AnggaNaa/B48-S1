@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home | Task Chapter 2</title>
+    <title>Project Detail</title>
     <link
       rel="shortcut icon"
       href="/public/images/favicon.png"
@@ -64,7 +64,7 @@
     <div class="bg-secondary-subtle p-sm-5">
       <div class="container bg-light">
         <div class="text-center">
-          <h2 class="fw-bold p-5">{{.Title}}</h2>
+          <h2 class="fw-bold p-5">{{.Project.ProjectName}}</h2>
         </div>
         <div class="d-flex flex-xl-row flex-column">
           <div class="img-blog mx-lg-5 m-2">
@@ -77,23 +77,29 @@
           <div class="fs-6 p-5">
             <h3 class="fw-bold mb-3">Duration</h3>
             <p>
-              <i class="fa-regular fa-calendar-days fa-2x me-3"></i> 12 Jan 2021
-              - 11 Feb 2021
+              <i class="fa-regular fa-calendar-days fa-2x me-3"></i>
+              {{.Project.StartDate}} - {{.Project.EndDate}}
             </p>
-            <p><i class="fa-solid fa-clock fa-2x me-3"></i> 1 month</p>
+            <p>
+              <i class="fa-solid fa-clock fa-2x me-3"></i>{{.Project.Duration}}
+            </p>
             <h3 class="fw-bold mb-3 me-3">Tehcnologies</h3>
             <p>
-              <i class="fa-brands fa-react fa-2x me-3"></i> React JS
-              <i class="fa-brands fa-node-js fa-2x mx-3"></i> Node JS
+              {{if .Project.ReactJs}}
+              <i class="fa-brands fa-react fa-2x me-3"></i> React JS {{end}}
+              {{if .Project.NodeJs}}
+              <i class="fa-brands fa-node-js fa-2x mx-3"></i> Node JS {{end}}
             </p>
             <p>
+              {{if .Project.Javascript}}
               <i class="fa-brands fa-square-js fa-2x me-3"></i> Javascript
-              <i class="fa-brands fa-golang fa-2x mx-3"></i> Golang
+              {{end}} {{if .Project.Golang}}
+              <i class="fa-brands fa-golang fa-2x mx-3"></i> Golang {{end}}
             </p>
           </div>
         </div>
 
-        <div class="text-blog p-lg-5 px-3">{{.Content}}</div>
+        <div class="text-blog p-lg-5 px-3">{{.Project.Description}}</div>
       </div>
     </div>
 

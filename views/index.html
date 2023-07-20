@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home | Task Chapter 2</title>
+    <title>Home</title>
     <link
       rel="shortcut icon"
       href="public/images/favicon.png"
@@ -146,38 +146,58 @@
     <div class="container-xl container-md-fluid d-flex flex-column py-5">
       <h1 class="fw-bold text-center">MY PROJECT</h1>
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
+        {{range $index, $data := .Projects}}
         <div class="card card-project">
           <img src="public/images/img1.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              <a href="blog-detail/1" target="_blank"
-                >Dumbways Mobile App - 2021</a
+              <a href="project/{{$index}}" target="_blank"
+                >{{$data.ProjectName}}</a
               >
             </p>
-            <div class="card-duration">durasi: 3 bulan</div>
-            <p class="card-text my-2">
-              App that is used by dumbways student, it was deployed and can be
-              downloaded on playstore. Happy download
-            </p>
+            <div class="card-duration">durasi: {{$data.Duration}}</div>
+            <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
             <div class="d-flex gap-4 my-3" style="width: 100%">
-              <i class="fa-brands fa-google-play fs-3"></i>
-              <i class="fa-brands fa-android fs-3"></i>
-              <i class="fa-brands fa-java fs-3"></i>
+              {{if $data.ReactJs}}
+              <i class="fa-brands fa-react fa-2x"></i>
+              {{end}} {{if $data.NodeJs}}
+              <i class="fa-brands fa-node-js fa-2x"></i>
+              {{end}} {{if $data.Javascript}}
+              <i class="fa-brands fa-square-js fa-2x"></i>
+              {{end}} {{if $data.Golang}}
+              <i class="fa-brands fa-golang fa-2x"></i>
+              {{end}}
             </div>
-            <div class="btn-card-index d-flex gap-2" style="width: 100%">
-              <button class="btn btn-dark" style="width: 100%">edit</button>
-              <button class="btn btn-dark" style="width: 100%">delete</button>
+            <div
+              class="btn-card-index d-flex justify-content-center gap-2"
+              style="width: 100%"
+            >
+              <form
+                class="d-inline"
+                action="/edit-project/{{$index}}"
+                method="GET"
+                style="width: 100%"
+              >
+                <button class="btn btn-dark" style="width: 100%">edit</button>
+              </form>
+              <form
+                class="d-inline"
+                action="/delete-project/{{$index}}"
+                method="POST"
+                style="width: 100%"
+              >
+                <button class="btn btn-dark" style="width: 100%">delete</button>
+              </form>
             </div>
           </div>
         </div>
+        {{end}}
 
-        <div class="card card-project">
+        <!-- <div class="card card-project">
           <img src="public/images/img2.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              <a href="blog-detail/2" target="_blank"
-                >Dumbways Mobile App - 2021</a
-              >
+              <a href="project/2" target="_blank">Dumbways Mobile App - 2021</a>
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -200,9 +220,7 @@
           <img src="public/images/img3.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              <a href="blog-detail/3" target="_blank"
-                >Dumbways Mobile App - 2021</a
-              >
+              <a href="project/3" target="_blank">Dumbways Mobile App - 2021</a>
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -225,9 +243,7 @@
           <img src="public/images/img4.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              <a href="blog-detail/4" target="_blank"
-                >Dumbways Mobile App - 2021</a
-              >
+              <a href="project/4" target="_blank">Dumbways Mobile App - 2021</a>
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -250,9 +266,7 @@
           <img src="public/images/img5.png" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
-              <a href="blog-detail/5" target="_blank"
-                >Dumbways Mobile App - 2021</a
-              >
+              <a href="project/5" target="_blank">Dumbways Mobile App - 2021</a>
             </p>
             <div class="card-duration">durasi: 3 bulan</div>
             <p class="card-text my-2">
@@ -269,7 +283,7 @@
               <button class="btn btn-dark" style="width: 100%">delete</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
