@@ -148,7 +148,7 @@
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         {{range $index, $data := .Projects}}
         <div class="card card-project">
-          <img src="public/images/img1.png" alt="" />
+          <img src="public/images/{{$data.Image}}" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
               <a href="project/{{$index}}" target="_blank"
@@ -158,14 +158,14 @@
             <div class="card-duration">durasi: {{$data.Duration}}</div>
             <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
             <div class="d-flex gap-4 my-3" style="width: 100%">
-              {{if $data.ReactJs}}
-              <i class="fa-brands fa-react fa-2x"></i>
-              {{end}} {{if $data.NodeJs}}
+              {{if $data.NodeJs}}
               <i class="fa-brands fa-node-js fa-2x"></i>
-              {{end}} {{if $data.Javascript}}
-              <i class="fa-brands fa-square-js fa-2x"></i>
+              {{end}} {{if $data.ReactJs}}
+              <i class="fa-brands fa-react fa-2x"></i>
               {{end}} {{if $data.Golang}}
               <i class="fa-brands fa-golang fa-2x"></i>
+              {{end}} {{if $data.Javascript}}
+              <i class="fa-brands fa-square-js fa-2x"></i>
               {{end}}
             </div>
             <div
