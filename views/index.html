@@ -148,7 +148,7 @@
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         {{range $index, $data := .Projects}}
         <div class="card card-project">
-          <img src="public/images/img1.png" alt="" />
+          <img src="public/images/{{$data.Image}}" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
               <a href="project/{{$index}}" target="_blank"

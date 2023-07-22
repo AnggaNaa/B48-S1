@@ -20,6 +20,7 @@ type Project struct {
 		ReactJs    bool
 		Golang     bool
 		Javascript bool
+		Image string
 }
 
 var projectData = []Project{
@@ -33,6 +34,7 @@ var projectData = []Project{
 		ReactJs:    false,
 		Golang:     true,
 		Javascript: true,
+		Image: 		"img1.png",
 	},
 	{
 		ProjectName:"Project 2",
@@ -44,6 +46,7 @@ var projectData = []Project{
 		ReactJs:    false,
 		Golang:     true,
 		Javascript: false,
+		Image: 		"img2.png",
 	},
 	{
 		ProjectName:"Project 3",
@@ -55,6 +58,7 @@ var projectData = []Project{
 		ReactJs:    true,
 		Golang:     true,
 		Javascript: true,
+		Image: 		"img3.png",
 	},
 	{
 		ProjectName:"Project 4",
@@ -66,6 +70,7 @@ var projectData = []Project{
 		ReactJs:    true,
 		Golang:     true,
 		Javascript: true,
+		Image: 		"img4.png",
 	},
 	{
 		ProjectName:"Project 5",
@@ -77,6 +82,7 @@ var projectData = []Project{
 		ReactJs:    true,
 		Golang:     true,
 		Javascript: true,
+		Image: 		"img5.png",
 	},
 }
 
@@ -174,6 +180,7 @@ func projectDetail(c echo.Context) error {
 				ReactJs:    	data.ReactJs,
 				Golang:     	data.Golang,
 				Javascript: 	data.Javascript,
+				Image: 			data.Image,
 			}
 		}
 	}
@@ -206,6 +213,7 @@ func editProject(c echo.Context) error {
 				ReactJs:    	data.ReactJs,
 				Golang:     	data.Golang,
 				Javascript: 	data.Javascript,
+				Image: 			data.Image,
 			}
 		}
 	}
@@ -233,6 +241,7 @@ func submitProject(c echo.Context) error {
 		reactJs := c.FormValue("reactJs")
 		golang := c.FormValue("golang")
 		javascript := c.FormValue("javascript")
+		image := c.FormValue("input-image")
 
 		var newProject = Project{
 			ProjectName: projectName,
@@ -244,6 +253,7 @@ func submitProject(c echo.Context) error {
 			ReactJs:    (reactJs == "reactJs"),
 			Golang:     (golang == "golang"),
 			Javascript: (javascript == "javascript"),
+			Image: 		image,
 		}
 
 		projectData = append(projectData, newProject)
@@ -264,6 +274,7 @@ func submitEditedProject(c echo.Context) error {
 		reactJs := c.FormValue("reactJs")
 		golang := c.FormValue("golang")
 		javascript := c.FormValue("javascript")
+		image := c.FormValue("input-image")
 
 		var editedProject = Project{
 			ProjectName: projectName,
@@ -275,6 +286,7 @@ func submitEditedProject(c echo.Context) error {
 			ReactJs:    (reactJs == "reactJs"),
 			Golang:     (golang == "golang"),
 			Javascript: (javascript == "javascript"),
+			Image: 		image,
 		}
 
 		projectData[id] = editedProject
