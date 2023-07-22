@@ -211,11 +211,14 @@ func projectDetail(c echo.Context) error {
 				ReactJs:    	data.ReactJs,
 				Golang:     	data.Golang,
 				Javascript: 	data.Javascript,
+				Image:			data.Image,
 			}
 		}
 	}
 	data := map[string]interface{}{
 		"Project":   ProjectDetail,
+		"startDateString" 	: ProjectDetail.StartDate.Format("2006-01-02"),
+		"endDateString"		: ProjectDetail.EndDate.Format("2006-01-02"),
 	}
 
 	var tmpl, err = template.ParseFiles("views/project-detail.html")
@@ -247,7 +250,8 @@ func editProject(c echo.Context) error {
 		}
 	}
 	data := map[string]interface{}{
-		"Project":   ProjectDetail,
+		"Project"			:   ProjectDetail,
+		
 	}
 
 	var tmpl, err = template.ParseFiles("views/edit-project.html")
