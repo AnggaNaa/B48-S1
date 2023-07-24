@@ -296,6 +296,7 @@ func countDuration(d1 time.Time, d2 time.Time) string {
 	weeks := days / 7
 	months := days / 30
 
+	
 	if months > 12 {
 		return strconv.Itoa(months/12) + " tahun"
 	}
