@@ -63,7 +63,7 @@
 
     <div class="p-3">
       <form
-        action="/edit-project/{{.Id}}"
+        action="/edit-project/{{.Project.Id}}"
         method="post"
         class="m-auto"
         style="max-width: 500px"
@@ -92,7 +92,7 @@
               class="form-control"
               name="startDate"
               id="start-date"
-              value="{{.Project.StartDate}}"
+              value="{{.StartDate}}"
               required
             />
           </div>
@@ -103,7 +103,7 @@
               class="form-control"
               name="endDate"
               id="end-date"
-              value="{{.Project.EndDate}}"
+              value="{{.EndDate}}"
               required
             />
           </div>
@@ -120,7 +120,7 @@
             style="resize: none; height: 10em"
             required
           >
-            {{.Project.Description}}</textarea
+{{.Project.Description}}</textarea
           >
         </div>
 
@@ -134,6 +134,10 @@
                 name="nodeJs"
                 id="node-js"
                 value="nodeJs"
+                {{if
+                .Project.NodeJs}}
+                checked
+                {{end}}
               />
               <label class="ms-2" for="node-js">Node Js</label>
             </div>
@@ -144,6 +148,10 @@
                 name="reactJs"
                 id="react-js"
                 value="reactJs"
+                {{if
+                .Project.ReactJs}}
+                checked
+                {{end}}
               />
               <label class="ms-2" for="react-js">React Js</label>
             </div>
@@ -156,6 +164,10 @@
                 name="golang"
                 id="golang"
                 value="golang"
+                {{if
+                .Project.Golang}}
+                checked
+                {{end}}
               />
               <label class="ms-2" for="golang">Golang</label>
             </div>
@@ -166,6 +178,10 @@
                 name="javascript"
                 id="javascript"
                 value="javascript"
+                {{if
+                .Project.Javascript}}
+                checked
+                {{end}}
               />
               <label class="ms-2" for="javascript">Javascript</label>
             </div>
