@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Project</title>
+    <title>Home</title>
     <link
       rel="shortcut icon"
       href="public/images/favicon.png"
@@ -22,7 +22,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-secondary-subtle">
+  <body class="bg-body-tertiary">
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://dumbways.id/" target="_blank">
@@ -48,7 +48,7 @@
               <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="myproject">MY PROJECT</a>
+              <a class="nav-link active fw-bold" href="#">MY PROJECT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="testimonial">TESTIMONIAL</a>
@@ -97,124 +97,59 @@
       </div>
     </nav>
 
-    <div class="p-3">
-      <form action="/" method="post" class="m-auto" style="max-width: 500px">
-        <h1 class="mb-3 text-center fw-bold">ADD MY PROJECT</h1>
-
-        <div class="mb-3">
-          <label for="projectName" class="form-label fw-bold"
-            >Project Name</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="input-name"
-            id="input-name-project"
-            required
-          />
-        </div>
-
-        <div class="mb-3 row">
-          <div class="col">
-            <label for="startDate" class="form-label fw-bold">Start Date</label>
-            <input
-              type="date"
-              class="form-control"
-              name="startDate"
-              id="start-date"
-              required
-            />
-          </div>
-          <div class="col">
-            <label for="endDate" class="form-label fw-bold">End Date</label>
-            <input
-              type="date"
-              class="form-control"
-              name="endDate"
-              id="end-date"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="description" class="form-label fw-bold"
-            >Description</label
-          >
-          <textarea
-            class="form-control"
-            name="input-description"
-            id="input-description"
-            style="resize: none; height: 10em"
-            required
-          ></textarea>
-        </div>
-
-        <div class="mb-3 row">
-          <label class="form-label fw-bold">Technologies</label>
-          <div class="col">
-            <div>
-              <input
-                class="form-check-input me-auto multi-input"
-                type="checkbox"
-                name="nodeJs"
-                id="node-js"
-                value="nodeJs"
-              />
-              <label class="ms-2" for="node-js">Node Js</label>
+    <div class="container-xl container-md-fluid d-flex flex-column py-5">
+      <h1 class="fw-bold text-center">MY PROJECT</h1>
+      <div class="d-flex justify-content-center mt-2">
+        <a class="btn btn-dark" href="add-project" role="button">ADD PROJECT</a>
+      </div>
+      <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
+        {{range $index, $data := .Projects}}
+        <div class="card card-project">
+          <img src="public/images/{{$data.Image}}" alt="" />
+          <div class="card-title">
+            <p class="card-title fs-6 fw-bold mb-0">
+              <a href="project/{{$data.Id}}" target="_blank"
+                >{{$data.ProjectName}}</a
+              >
+            </p>
+            <div class="card-duration">durasi: {{$data.Duration}}</div>
+            <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
+            <div class="d-flex gap-4 my-3" style="width: 100%">
+              {{if $data.NodeJs}}
+              <i class="fa-brands fa-node-js fa-2x"></i>
+              {{end}} {{if $data.ReactJs}}
+              <i class="fa-brands fa-react fa-2x"></i>
+              {{end}} {{if $data.Golang}}
+              <i class="fa-brands fa-golang fa-2x"></i>
+              {{end}} {{if $data.Javascript}}
+              <i class="fa-brands fa-square-js fa-2x"></i>
+              {{end}}
             </div>
-            <div>
-              <input
-                class="form-check-input me-auto multi-input"
-                type="checkbox"
-                name="reactJs"
-                id="react-js"
-                value="reactJs"
-              />
-              <label class="ms-2" for="react-js">React Js</label>
-            </div>
-          </div>
-          <div class="col">
-            <div>
-              <input
-                class="form-check-input me-auto multi-input"
-                type="checkbox"
-                name="golang"
-                id="golang"
-                value="golang"
-              />
-              <label class="ms-2" for="golang">Golang</label>
-            </div>
-            <div>
-              <input
-                class="form-check-input me-auto multi-input"
-                type="checkbox"
-                name="javascript"
-                id="javascript"
-                value="javascript"
-              />
-              <label class="ms-2" for="javascript">Javascript</label>
+            <div
+              class="btn-card-index d-flex justify-content-center gap-2"
+              style="width: 100%"
+            >
+              <form
+                class="d-inline"
+                action="/edit-project/{{$data.Id}}"
+                method="GET"
+                style="width: 100%"
+              >
+                <button class="btn btn-dark" style="width: 100%">edit</button>
+              </form>
+              <form
+                class="d-inline"
+                action="/delete-project/{{$data.Id}}"
+                method="POST"
+                style="width: 100%"
+              >
+                <button class="btn btn-dark" style="width: 100%">delete</button>
+              </form>
             </div>
           </div>
         </div>
-
-        <div class="mb-3">
-          <label for="formFile" class="form-label fw-bold">Upload Image</label>
-          <input
-            class="form-control"
-            type="file"
-            id="input-image"
-            name="input-image"
-            required
-          />
-        </div>
-
-        <div class="mb-3 text-end">
-          <button class="btn btn-dark rounded-pill fw-bold px-4" type="submit">
-            submit
-          </button>
-        </div>
-      </form>
+        {{end}}
+      </div>
     </div>
 
     <script

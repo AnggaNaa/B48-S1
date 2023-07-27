@@ -40,7 +40,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse text-center"
+          class="collapse navbar-collapse text-start"
           id="navbarSupportedContent"
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -50,18 +50,84 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add-project">ADD PROJECT</a>
+              {{if .DataSession.IsLogin}}
+              <a class="nav-link" href="myproject">MY PROJECT</a>
+              {{end}}
             </li>
             <li class="nav-item">
               <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex justify-content-center">
-            <a class="btn btn-dark" href="contact" role="button">Contact Me</a>
+          <div class="d-flex flex-lg-row justify-content-center flex-column">
+            {{if .DataSession.IsLogin}}
+            <form id="logoutform" action="/logout" method="POST"></form>
+            <div class="dropdown-center btn-dropdown-logout">
+              <a
+                class="btn dropdown-toggle ps-0 mb-0"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                style="border: none"
+              >
+                Hello, {{.DataSession.Name}}
+              </a>
+
+              <ul
+                class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
+                style="border: none"
+              >
+                <a
+                  class="dropdown-item bg-body-tertiary ps-0"
+                  href="#"
+                  style="border: none"
+                  onclick="document.getElementById('logoutform').submit()"
+                  >Logout</a
+                >
+              </ul>
+            </div>
+            {{else}}
+            <a class="btn btn-close-white fs-6 border-0" href="form-register"
+              >Register</a
+            >
+            <a class="btn btn-close-white fs-6 mx-2" href="form-login">Login</a>
+            {{end}}
+            <div>
+              <a class="btn btn-dark" href="contact" role="button"
+                >Contact Me</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </nav>
+
+    {{if .FlashMessage}} {{if .FlashStatus}}
+    <div
+      class="alert alert-success alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashMessage}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {{else}}
+    <div
+      class="alert alert-danger alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashMessage}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {{end}} {{end}}
 
     <div class="bg-secondary-subtle p-sm-5">
       <div class="container bg-light">
@@ -145,9 +211,11 @@
 
     <div class="container-xl container-md-fluid d-flex flex-column py-5">
       <h1 class="fw-bold text-center">MY PROJECT</h1>
+      {{if .DataSession.IsLogin}}
       <div class="d-flex justify-content-center mt-2">
         <a class="btn btn-dark" href="add-project" role="button">ADD PROJECT</a>
       </div>
+      {{end}}
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         {{range $index, $data := .Projects}}
         <div class="card card-project">
@@ -160,7 +228,10 @@
             </p>
             <div class="card-duration">durasi: {{$data.Duration}}</div>
             <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
-            <div class="d-flex gap-4 my-3" style="width: 100%">
+            <div
+              class="d-flex gap-4 my-3 justify-content-center"
+              style="width: 100%"
+            >
               {{if $data.NodeJs}}
               <i class="fa-brands fa-node-js fa-2x"></i>
               {{end}} {{if $data.ReactJs}}
@@ -170,27 +241,6 @@
               {{end}} {{if $data.Javascript}}
               <i class="fa-brands fa-square-js fa-2x"></i>
               {{end}}
-            </div>
-            <div
-              class="btn-card-index d-flex justify-content-center gap-2"
-              style="width: 100%"
-            >
-              <form
-                class="d-inline"
-                action="/edit-project/{{$data.Id}}"
-                method="GET"
-                style="width: 100%"
-              >
-                <button class="btn btn-dark" style="width: 100%">edit</button>
-              </form>
-              <form
-                class="d-inline"
-                action="/delete-project/{{$data.Id}}"
-                method="POST"
-                style="width: 100%"
-              >
-                <button class="btn btn-dark" style="width: 100%">delete</button>
-              </form>
             </div>
           </div>
         </div>

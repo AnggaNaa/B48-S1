@@ -32,7 +32,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse text-center"
+          class="collapse navbar-collapse text-start"
           id="navbarSupportedContent"
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -40,14 +40,50 @@
               <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add-project">ADD PROJECT</a>
+              {{if .DataSession.IsLogin}}
+              <a class="nav-link" href="myproject">MY PROJECT</a>
+              {{end}}
             </li>
             <li class="nav-item">
               <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex justify-content-center">
-            <a class="btn btn-dark" href="#" role="button">Contact Me</a>
+          <div class="d-flex flex-lg-row justify-content-center flex-column">
+            {{if .DataSession.IsLogin}}
+            <form id="logoutform" action="/logout" method="POST"></form>
+            <div class="dropdown-center btn-dropdown-logout">
+              <a
+                class="btn dropdown-toggle ps-0 mb-0"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                style="border: none"
+              >
+                Hello, {{.DataSession.Name}}
+              </a>
+
+              <ul
+                class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
+                style="border: none"
+              >
+                <a
+                  class="dropdown-item bg-body-tertiary ps-0"
+                  href="#"
+                  style="border: none"
+                  onclick="document.getElementById('logoutform').submit()"
+                  >Logout</a
+                >
+              </ul>
+            </div>
+            {{else}}
+            <a class="btn btn-close-white fs-6 border-0" href="form-register"
+              >Register</a
+            >
+            <a class="btn btn-close-white fs-6 mx-2" href="form-login">Login</a>
+            {{end}}
+            <div>
+              <a class="btn btn-dark" href="#" role="button">Contact Me</a>
+            </div>
           </div>
         </div>
       </div>
