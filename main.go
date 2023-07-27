@@ -567,21 +567,6 @@ func submitEditedProject(c echo.Context) error {
 		start, _ := time.Parse("2006-01-02", startDate)
 		end, _ := time.Parse("2006-01-02", endDate)
 
-		// var tech []string
-		// if nodeJs == "nodeJs" {
-		// 	tech = append(tech, "nodeJs")
-		// }
-		// if reactJs == "reactJs" {
-		// 	tech = append(tech, "reactJs")
-		// }
-		// if golang == "golang" {
-		// 	tech = append(tech, "golang")
-		// }
-		// if javascript == "javascript" {
-		// 	tech = append(tech, "javascript")
-		// }
-		
-		// merge := strings.Join(tech, ",")
 
 		_, err := connection.Conn.Exec(context.Background(),
 			"UPDATE tb_projects SET name_project=$1, start_date=$2, end_date=$3, description=$4, image=$5, technologies=$6 WHERE id=$7",
