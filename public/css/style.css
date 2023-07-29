@@ -3,7 +3,11 @@
 * {
   text-decoration: none !important;
   font-family: "Poppins", sans-serif;
-  color: black;
+  /* color: black; */
+}
+
+.dropdown-menu.show {
+  min-width: 8em;
 }
 
 body {
@@ -24,6 +28,7 @@ body {
 }
 
 .container-index .social-media a i {
+  color: black;
   font-size: 40px;
   transition: 0.3s ease-in-out;
 }

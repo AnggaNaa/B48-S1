@@ -105,14 +105,16 @@
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         {{range $index, $data := .Projects}}
         <div class="card card-project">
-          <img src="public/images/{{$data.Image}}" alt="" />
+          <img src="/uploads/{{$data.Image}}" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
               <a href="project/{{$data.Id}}" target="_blank"
                 >{{$data.ProjectName}}</a
               >
             </p>
-            <div class="card-duration">durasi: {{$data.Duration}}</div>
+            <div class="card-duration">
+              durasi: {{$data.Duration}} | {{$data.Author}}
+            </div>
             <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
             <div class="d-flex gap-4 my-3" style="width: 100%">
               {{if $data.NodeJs}}

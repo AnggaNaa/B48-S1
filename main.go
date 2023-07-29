@@ -2,6 +2,7 @@ package main
 
 import (
 	"b48s1/connection"
+	"b48s1/middleware"
 	"context"
 	"fmt"
 	"log"
@@ -29,6 +30,7 @@ type Project struct {
 		Golang     bool
 		Javascript bool
 		Image string
+		Author string
 }
 
 type User struct {
@@ -73,6 +75,7 @@ func main() {
 
 	// Mengatur penanganan file static
 	e.Static("/public", "public")
+	e.Static("/uploads", "uploads")
 
 	// To use sessions using echo
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("session"))))
@@ -89,8 +92,8 @@ func main() {
 	e.GET("/form-login", formLogin)
 	
 	//Daftar Routes POST
-	e.POST("/", submitProject)
-	e.POST("/edit-project/:id", submitEditedProject)
+	e.POST("/", middleware.UploadFile(submitProject))
+	e.POST("/edit-project/:id", middleware.UploadFile(submitEditedProject))
 	e.POST("/delete-project/:id", deleteProject)
 	e.POST("/register", register)
 	e.POST("/login", login)
@@ -103,13 +106,13 @@ func main() {
 
 func home(c echo.Context) error {
 
-	data, _ := connection.Conn.Query(context.Background(), "SELECT * FROM tb_projects")
+	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, name_project, start_date, end_date, description, image, technologies, tb_users.name AS author FROM tb_projects JOIN tb_users ON tb_projects.author_id = tb_users.id")
 
 	var projectData []Project
 	for data.Next() {
 		var each = Project{}
 
-		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies)
+		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies, &each.Author)
 		if err != nil {
 			fmt.Println(err.Error())
 			return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
@@ -163,13 +166,13 @@ func home(c echo.Context) error {
 }
 
 func myproject(c echo.Context) error {
-	data, _ := connection.Conn.Query(context.Background(), "SELECT * FROM tb_projects")
+	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, name_project, start_date, end_date, description, image, technologies, tb_users.name AS author FROM tb_projects JOIN tb_users ON tb_projects.author_id = tb_users.id")
 
 	var projectData []Project
 	for data.Next() {
 		var each = Project{}
 
-		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies)
+		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies, &each.Author)
 		if err != nil {
 			fmt.Println(err.Error())
 			return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
@@ -217,6 +220,10 @@ func myproject(c echo.Context) error {
 }
 
 func addProject(c echo.Context) error {
+
+	// if userData.IsLogin != true {
+	// 	return c.Redirect(http.StatusMovedPermanently, "/form-login")
+	// }
 
 	sess, _ := session.Get("session", c)
 
@@ -291,8 +298,8 @@ func projectDetail(c echo.Context) error {
 
 	var ProjectDetail = Project{}
 
-	err := connection.Conn.QueryRow(context.Background(), "SELECT * FROM tb_projects WHERE id=$1", id).Scan(
-		&ProjectDetail.Id, &ProjectDetail.ProjectName, &ProjectDetail.StartDate, &ProjectDetail.EndDate, &ProjectDetail.Description, &ProjectDetail.Image, &ProjectDetail.Technologies,
+	err := connection.Conn.QueryRow(context.Background(), "SELECT tb_projects.id, name_project, start_date, end_date, description, image, technologies, tb_users.name AS author FROM tb_projects JOIN tb_users ON tb_projects.author_id = tb_users.id WHERE tb_projects.id =$1", id).Scan(
+		&ProjectDetail.Id, &ProjectDetail.ProjectName, &ProjectDetail.StartDate, &ProjectDetail.EndDate, &ProjectDetail.Description, &ProjectDetail.Image, &ProjectDetail.Technologies, &ProjectDetail.Author,
 	)
 
 	if err != nil {
@@ -340,11 +347,17 @@ func projectDetail(c echo.Context) error {
 }
 
 func editProject(c echo.Context) error {
+
+	if userData.IsLogin != true {
+		return c.Redirect(http.StatusMovedPermanently, "/form-login")
+	}
+
+
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	var ProjectDetail = Project{}
 
-	err := connection.Conn.QueryRow(context.Background(), "SELECT * FROM tb_projects WHERE id=$1", id).Scan(
+	err := connection.Conn.QueryRow(context.Background(), "SELECT id, name_project, start_date, end_date, description, image, technologies FROM tb_projects WHERE id=$1", id).Scan(
 		&ProjectDetail.Id, &ProjectDetail.ProjectName, &ProjectDetail.StartDate, &ProjectDetail.EndDate, &ProjectDetail.Description, &ProjectDetail.Image, &ProjectDetail.Technologies,
 	)
 
@@ -398,14 +411,12 @@ func editProject(c echo.Context) error {
 
 func formRegister(c echo.Context) error {
 
-	sess, _ := session.Get("session", c)
+	// sess, _ := session.Get("session", c)
 
-	if sess.Values["isLogin"] != true {
-		userData.IsLogin = false
-	} else {
-		userData.IsLogin = sess.Values["isLogin"].(bool)
-		userData.Name = sess.Values["name"].(string)
+	if userData.IsLogin != false {
+		return c.Redirect(http.StatusMovedPermanently, "/")
 	}
+
 
 	data := map[string]interface{}{
 		"DataSession": userData,
@@ -444,13 +455,11 @@ func register(c echo.Context)error {
 func formLogin(c echo.Context) error {
 
 	sess, _ := session.Get("session", c)
-	
-	if sess.Values["isLogin"] != true {
-		userData.IsLogin = false
-		} else {
-		userData.IsLogin = sess.Values["isLogin"].(bool)
-		userData.Name = sess.Values["name"].(string)
+
+	if userData.IsLogin != false {
+		return c.Redirect(http.StatusMovedPermanently, "/")
 	}
+	
 	
 	flash :=map[string]interface{}{
 		"FlashStatus": sess.Values["status"],
@@ -497,7 +506,7 @@ func login(c echo.Context) error {
 	sess.Values["status"] = true
 	sess.Values["name"] = user.Name
 	sess.Values["email"] = user.Email
-	sess.Values["Id"] = user.Id
+	sess.Values["id"] = user.Id
 	sess.Values["isLogin"] = true
 	sess.Save(c.Request(),  c.Response())
 
@@ -531,12 +540,15 @@ func submitProject(c echo.Context) error {
 		golang := c.FormValue("golang")
 		javascript := c.FormValue("javascript")
 		tech := []string{nodeJs,reactJs,golang,javascript}
-		image := c.FormValue("input-image")
+		image := c.Get("dataFile").(string)
+
+		sess, _ := session.Get("session", c)
+		author := sess.Values["id"].(int)
 
 
 		_, err := connection.Conn.Exec(context.Background(),
-			"INSERT INTO tb_projects (name_project, start_date, end_date, description, image, technologies) VALUES ($1, $2, $3, $4, $5, $6)",
-			projectName, startDate, endDate, description, image, tech,
+			"INSERT INTO tb_projects (name_project, start_date, end_date, description, image, technologies, author_id) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+			projectName, startDate, endDate, description, image, tech, author,
 		)
 
 		if err != nil {
@@ -562,26 +574,11 @@ func submitEditedProject(c echo.Context) error {
 		golang := c.FormValue("golang")
 		javascript := c.FormValue("javascript")
 		tech := []string{nodeJs,reactJs,golang,javascript}
-		image := c.FormValue("input-image")
+		image := c.Get("dataFile").(string)
 
 		start, _ := time.Parse("2006-01-02", startDate)
 		end, _ := time.Parse("2006-01-02", endDate)
 
-		// var tech []string
-		// if nodeJs == "nodeJs" {
-		// 	tech = append(tech, "nodeJs")
-		// }
-		// if reactJs == "reactJs" {
-		// 	tech = append(tech, "reactJs")
-		// }
-		// if golang == "golang" {
-		// 	tech = append(tech, "golang")
-		// }
-		// if javascript == "javascript" {
-		// 	tech = append(tech, "javascript")
-		// }
-		
-		// merge := strings.Join(tech, ",")
 
 		_, err := connection.Conn.Exec(context.Background(),
 			"UPDATE tb_projects SET name_project=$1, start_date=$2, end_date=$3, description=$4, image=$5, technologies=$6 WHERE id=$7",

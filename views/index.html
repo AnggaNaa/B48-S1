@@ -43,7 +43,7 @@
           class="collapse navbar-collapse text-start"
           id="navbarSupportedContent"
         >
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active fw-bold" aria-current="page" href="/"
                 >HOME</a
@@ -86,10 +86,11 @@
               </ul>
             </div>
             {{else}}
-            <a class="btn btn-close-white fs-6 border-0" href="form-register"
-              >Register</a
-            >
-            <a class="btn btn-close-white fs-6 mx-2" href="form-login">Login</a>
+            <div>
+              <a class="btn btn-close-white fs-6 me-2 ps-0" href="form-login"
+                >Login</a
+              >
+            </div>
             {{end}}
             <div>
               <a class="btn btn-dark" href="contact" role="button"
@@ -219,14 +220,16 @@
       <div class="d-flex flex-wrap gap-5 justify-content-center my-5">
         {{range $index, $data := .Projects}}
         <div class="card card-project">
-          <img src="public/images/{{$data.Image}}" alt="" />
+          <img src="/uploads/{{$data.Image}}" alt="" />
           <div class="card-title">
             <p class="card-title fs-6 fw-bold mb-0">
               <a href="project/{{$data.Id}}" target="_blank"
                 >{{$data.ProjectName}}</a
               >
             </p>
-            <div class="card-duration">durasi: {{$data.Duration}}</div>
+            <div class="card-duration">
+              durasi: {{$data.Duration}} | {{$data.Author}}
+            </div>
             <p class="card-text my-2 text-truncate">{{$data.Description}}</p>
             <div
               class="d-flex gap-4 my-3 justify-content-center"
@@ -247,6 +250,78 @@
         {{end}}
       </div>
     </div>
+
+    <footer
+      class="text-center text-lg-start text-white"
+      id="footer"
+      style="background-color: #3e4551"
+    >
+      <div class="container pb-0">
+        <hr class="mb-4" />
+
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Register for free</span>
+            <a href="form-register" rel="noopener noreferrer">
+              <button type="button" class="btn btn-outline-light btn-rounded">
+                Sign up!
+              </button>
+            </a>
+          </p>
+        </section>
+
+        <hr class="mb-4" />
+
+        <section class="mb-4 text-center">
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://www.linkedin.com/in/angganurardiansyah/"
+            role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://github.com/AnggaNaa"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+      </div>
+
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-white" href="https://dumbways.com/">Dumbways.com</a>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

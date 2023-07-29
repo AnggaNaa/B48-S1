@@ -43,7 +43,7 @@
           class="collapse navbar-collapse text-center"
           id="navbarSupportedContent"
         >
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">HOME</a>
             </li>
@@ -54,16 +54,19 @@
               <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex justify-content-center">
-            <a class="btn btn-close-white fs-6" href="form-register"
-              >Register</a
-            >
-            <a
-              class="btn btn-close-white fs-6 mx-2 active fw-bold border-0"
-              href="#"
-              >Login</a
-            >
-            <a class="btn btn-dark" href="contact" role="button">Contact Me</a>
+          <div class="d-flex flex-lg-row flex-column">
+            <div>
+              <a
+                class="btn btn-close-white fs-6 mx-2 active fw-bold border-0"
+                href="#"
+                >Login</a
+              >
+            </div>
+            <div>
+              <a class="btn btn-dark" href="contact" role="button"
+                >Contact Me</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -128,10 +131,16 @@
           />
         </div>
 
-        <div class="my-5 text-end">
-          <button class="btn btn-dark rounded-pill fw-bold px-4" type="submit">
-            submit
-          </button>
+        <div class="d-flex justify-content-between my-4">
+          <div>No account? <a href="/form-register">Create one</a></div>
+          <div>
+            <button
+              class="btn btn-dark rounded-pill fw-bold px-4"
+              type="submit"
+            >
+              submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

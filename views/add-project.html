@@ -54,7 +54,7 @@
               <a class="nav-link" href="testimonial">TESTIMONIAL</a>
             </li>
           </ul>
-          <div class="d-flex flex-lg-row justify-content-center flex-column">
+          <div class="d-flex flex-lg-row justify-content-start flex-column">
             {{if .DataSession.IsLogin}}
             <form id="logoutform" action="/logout" method="POST"></form>
             <div class="dropdown-center btn-dropdown-logout">
@@ -82,11 +82,17 @@
               </ul>
             </div>
             {{else}}
-            <a class="btn btn-close-white fs-6 border-0" href="form-register"
-              >Register</a
-            >
-            <a class="btn btn-close-white fs-6 mx-2" href="form-login">Login</a>
-            {{end}}
+            <div>
+              <a class="btn btn-close-white fs-6 border-0" href="form-register"
+                >Register</a
+              >
+            </div>
+            <div>
+              <a class="btn btn-close-white fs-6 mx-2" href="form-login"
+                >Login</a
+              >
+              {{end}}
+            </div>
             <div>
               <a class="btn btn-dark" href="contact" role="button"
                 >Contact Me</a
@@ -98,7 +104,13 @@
     </nav>
 
     <div class="p-3">
-      <form action="/" method="post" class="m-auto" style="max-width: 500px">
+      <form
+        action="/"
+        method="post"
+        enctype="multipart/form-data"
+        class="m-auto"
+        style="max-width: 500px"
+      >
         <h1 class="mb-3 text-center fw-bold">ADD MY PROJECT</h1>
 
         <div class="mb-3">
