@@ -47,57 +47,39 @@ type SessionData struct {
 
 var userData = SessionData{}
 
-// var projectData = []Project{
-// 	{
-// 		ProjectName:"Project 1",
-// 		StartDate:  "2020-01-15",
-// 		EndDate:    "2020-02-15",
-// 		Duration:   countDuration("2020-01-15", "2020-02-15"),
-// 		Description: "<b>This is the description of project 1</b> <br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis optio iste sapiente provident fugit, impedit adipisci deserunt obcaecati voluptatum quo, hic culpa, repudiandae consectetur quia itaque eiusaccusamus natus unde. Lorem ipsum dolor sit amet consecteturadipisicing elit. Id sunt porro cupiditate, nesciunt totam aliaslabore fugiat? Accusantium a voluptates quibusdam tempora, evenietquasi sit debitis eaque ut in magnam? Lorem ipsum dolor sit amet,consectetur adipisicing elit. Dolor minima quia recusandae doloribusfacilis fugit optio, quaerat fugiat quod architecto id dignissimoscupiditate perferendis similique saepe totam, nulla nihil ipsam. Loremipsum dolor sit amet consectetur adipisicing elit. Incidunt laboreoptio, eos qui quasi, soluta fugit totam tempore, in amet underepellat perferendis quibusdam ducimus velit deserunt maxime possimusfacilis? Lorem ipsum dolor sit amet consectetur adipisicing elit.Veritatis accusamus eius, consequuntur possimus similique teneturfugiat incidunt minima necessitatibus eum ab enim reiciendis autem iddicta eaque libero. Ea ex ducimus cupiditate veniam voluptatibus,labore nam eius vero debitis, minima doloremque, nostrum sit etconsequuntur in velit totam nemo adipisci possimus consectetur placeatodit. Sed voluptas illo, praesentium, sapiente magni pariatur evenietmaiores nesciunt quibusdam inventore eligendi ex, aliquid fugiat ihil. Voluptates ipsa magnam rerum atque in magni, harum repudiandaes Veritatis accusamus eius, consequuntur possimus similique teneturfugiat incidunt minima necessitatibus eum ab enim reiciendis autem iddicta eaque libero. Ea ex ducimus cupiditate veniam voluptatibus,labore nam eius vero debitis, minima doloremque, nostrum sit etconsequuntur in velit totam nemo adipisci possimus consectetur placeatodit. Sed voluptas illo, praesentium, sapiente magni pariatur evenietmaiores nesciunt quibusdam inventore eligendi ex, aliquid fugiatnihil. Voluptates ipsa magnam rerum atque in magni, harum repudiandaeipsam quae quo similique! Neque quibusdam facilis debitis nonrepellendus asperiores laudantium obcaecati nihil necessitatibusplaceat, eum animi, veniam harum. Lorem ipsum dolor sit ametconsectetur adipisicing elit. Officia praesentium eum perspiciatisquas, nemo magni explicabo aspernatur natus dolore, hic totam,adipisci id. Obcaecati sequi, officiis explicabo in ducimus et aliquidinventore molestiae nam suscipit quisquam accusamus? Ratione autemdicta dolores animi illo veniam pariatur ipsa eveniet nulla id velitminima totam mollitia beatae porro iusto, numquam saepe iure velvoluptates quisquam et? Tempore, illum unde, ea explicabo oditlaudantium totam, vero accusamus natus aliquid eveniet neque odio.Incidunt ducimus quia quibusdam ab perferendis culpa doloresaccusantium nesciunt voluptatibus est necessitatibus quod omnis, seddeserunt asperiores cumque quo odio. Possimus quod debitis hicvoluptates earum minima, saepe quasi. Amet error nemo sapiente quidem,nesciunt, ea cupiditate eos ab temporibus reiciendis doloribus quaeratmaiores ex. Quia nihil hic ratione facilis quas fuga et ducimusexpedita ad omnis quis corporis dignissimos accusamus minus doloribusaut, quidem ipsa voluptatibus officia voluptas temporibus? Ab temporevitae illo iusto, exercitationem debitis neque, aspernatur sequi fugitassumenda amet voluptatibus veritatis laborum nam, non dolorem eiusperspiciatis facere possimus maxime pariatur! Eius, quae? Doloremquesunt dolorum magni aperiam, iste illum optio incidunt officiis",
-// 		NodeJs:     true,
-// 		ReactJs:    false,
-// 		Golang:     true,
-// 		Javascript: true,
-// 	},
-// }
-
-
 func main() {
 
+	// e = echo package
 	e := echo.New()
+
+	// connect to package database
 	connection.DatabaseConnect()
 
-	// fmt.println("Hello World!")
-	// e = echo package
-	// GET/POST = run the method
-	// "/" = endpoint/routing (ex. localhost:5000'/' ( ex. dumbways/lms)
-	// helloWord = function that will run if the routes are opened
-
-	// Mengatur penanganan file static
+	// Set the handling of static files
 	e.Static("/public", "public")
 	e.Static("/uploads", "uploads")
 
 	// To use sessions using echo
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("session"))))
 
-	// Daftar Routes GET
-	e.GET("/", home)
-	e.GET("/contact", contact)
-	e.GET("/testimonial", testimonial)
-	e.GET("/add-project", addProject)
-	e.GET("/edit-project/:id", editProject)
-	e.GET("/myproject", myproject)
-	e.GET("/project/:id", projectDetail)
-	e.GET("/form-register", formRegister)
-	e.GET("/form-login", formLogin)
+	// List Routes GET
+	e.GET("/", 					home)
+	e.GET("/contact", 			contact)
+	e.GET("/testimonial", 		testimonial)
+	e.GET("/add-project", 		addProject)
+	e.GET("/edit-project/:id", 	editProject)
+	e.GET("/myproject", 		myproject)
+	e.GET("/project/:id", 		projectDetail)
+	e.GET("/form-register", 	formRegister)
+	e.GET("/form-login", 		formLogin)
 	
-	//Daftar Routes POST
-	e.POST("/", middleware.UploadFile(submitProject))
-	e.POST("/edit-project/:id", middleware.UploadFile(submitEditedProject))
-	e.POST("/delete-project/:id", deleteProject)
-	e.POST("/register", register)
-	e.POST("/login", login)
-	e.POST("/logout", logout)
+	//List Routes POST
+	e.POST("/", 					middleware.UploadFile(submitProject))
+	e.POST("/edit-project/:id", 	middleware.UploadFile(submitEditedProject))
+	e.POST("/delete-project/:id", 	deleteProject)
+	e.POST("/register", 			register)
+	e.POST("/login", 				login)
+	e.POST("/logout", 				logout)
 
 	// Server
 	e.Logger.Fatal(e.Start("localhost:8000"))
@@ -166,47 +148,60 @@ func home(c echo.Context) error {
 }
 
 func myproject(c echo.Context) error {
-	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, name_project, start_date, end_date, description, image, technologies, tb_users.name AS author FROM tb_projects JOIN tb_users ON tb_projects.author_id = tb_users.id")
-
-	var projectData []Project
-	for data.Next() {
-		var each = Project{}
-
-		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies, &each.Author)
-		if err != nil {
-			fmt.Println(err.Error())
-			return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
-		}
-
-		each.Duration = countDuration(each.StartDate, each.EndDate)
-		if checkValue(each.Technologies, "nodeJs") {
-			each.NodeJs = true
-		}
-		if checkValue(each.Technologies, "reactJs") {
-			each.ReactJs = true
-		}
-		if checkValue(each.Technologies, "golang") {
-			each.Golang = true
-		}
-		if checkValue(each.Technologies, "javascript") {
-			each.Javascript = true
-		}
-
-		projectData = append(projectData, each)
-	}
-
+	
 	sess, _ := session.Get("session", c)
-
+	var projectData []Project
+	
 	if sess.Values["isLogin"] != true {
-		userData.IsLogin = false
+		userData.IsLogin = false 
+			return c.Redirect(http.StatusMovedPermanently, "/form-login")
 	} else {
 		userData.IsLogin = sess.Values["isLogin"].(bool)
 		userData.Name = sess.Values["name"].(string)
+		userId := sess.Values["id"]
+		data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, name_project, start_date, end_date, description, image, technologies, tb_users.name AS author FROM tb_projects LEFT JOIN tb_users ON tb_projects.author_id = tb_users.id WHERE author_id = $1 ORDER BY tb_projects.id", userId)
+		
+		for data.Next() {
+			var each = Project{}
+	
+			err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Description, &each.Image, &each.Technologies, &each.Author)
+			if err != nil {
+				fmt.Println(err.Error())
+				return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
+			}
+	
+			each.Duration = countDuration(each.StartDate, each.EndDate)
+			if checkValue(each.Technologies, "nodeJs") {
+				each.NodeJs = true
+			}
+			if checkValue(each.Technologies, "reactJs") {
+				each.ReactJs = true
+			}
+			if checkValue(each.Technologies, "golang") {
+				each.Golang = true
+			}
+			if checkValue(each.Technologies, "javascript") {
+				each.Javascript = true
+			}
+	
+			projectData = append(projectData, each)
+		}
 	}
+
+
+	// sess, _ := session.Get("session", c)
+
+	// if sess.Values["isLogin"] != true {
+	// 	userData.IsLogin = false
+	// } else {
+	// 	userData.IsLogin = sess.Values["isLogin"].(bool)
+	// 	userData.Name = sess.Values["name"].(string)
+	// }
 
 	projects := map[string]interface{}{
 		"Projects": projectData,
 		"DataSession": userData,
+		// "Author" : userData.Name,
 	}
 
 	var tmpl, err = template.ParseFiles("views/myproject.html")
@@ -221,14 +216,12 @@ func myproject(c echo.Context) error {
 
 func addProject(c echo.Context) error {
 
-	// if userData.IsLogin != true {
-	// 	return c.Redirect(http.StatusMovedPermanently, "/form-login")
-	// }
 
 	sess, _ := session.Get("session", c)
 
 	if sess.Values["isLogin"] != true {
 		userData.IsLogin = false
+		return c.Redirect(http.StatusMovedPermanently, "/form-login")
 	} else {
 		userData.IsLogin = sess.Values["isLogin"].(bool)
 		userData.Name = sess.Values["name"].(string)
@@ -346,6 +339,81 @@ func projectDetail(c echo.Context) error {
 	return tmpl.Execute(c.Response(), data)
 }
 
+func submitProject(c echo.Context) error {
+	
+	projectName := c.FormValue("input-name")
+	startDate := c.FormValue("startDate")
+	endDate := c.FormValue("endDate")
+	description := c.FormValue("input-description")
+	nodeJs := c.FormValue("nodeJs")
+	reactJs := c.FormValue("reactJs")
+	golang := c.FormValue("golang")
+	javascript := c.FormValue("javascript")
+	tech := []string{nodeJs,reactJs,golang,javascript}
+	image := c.Get("dataFile").(string)
+	
+	sess, _ := session.Get("session", c)
+	author := sess.Values["id"].(int)
+	
+	
+	_, err := connection.Conn.Exec(context.Background(),
+			"INSERT INTO tb_projects (name_project, start_date, end_date, description, image, technologies, author_id) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+			projectName, startDate, endDate, description, image, tech, author,
+		)
+
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+		}
+	
+		
+
+	return c.Redirect(http.StatusMovedPermanently, "/myproject")
+}
+
+func submitEditedProject(c echo.Context) error {
+	
+	// Menangkap Id dari Query Params
+		id, _:= strconv.Atoi(c.Param("id"))
+
+		projectName := c.FormValue("input-name")
+		startDate := c.FormValue("startDate")
+		endDate := c.FormValue("endDate")
+		description := c.FormValue("input-description")
+		nodeJs := c.FormValue("nodeJs")
+		reactJs := c.FormValue("reactJs")
+		golang := c.FormValue("golang")
+		javascript := c.FormValue("javascript")
+		tech := []string{nodeJs,reactJs,golang,javascript}
+		image := c.Get("dataFile").(string)
+
+		start, _ := time.Parse("2006-01-02", startDate)
+		end, _ := time.Parse("2006-01-02", endDate)
+
+
+		_, err := connection.Conn.Exec(context.Background(),
+			"UPDATE tb_projects SET name_project=$1, start_date=$2, end_date=$3, description=$4, image=$5, technologies=$6 WHERE id=$7",
+			projectName, start, end, description, image, tech, id,
+		)
+
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+		}
+
+		return c.Redirect(http.StatusMovedPermanently, "/myproject")
+}
+
+func deleteProject(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+
+	_, err := connection.Conn.Exec(context.Background(), "DELETE FROM tb_projects WHERE id=$1", id)
+
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+	}
+
+	return c.Redirect(http.StatusMovedPermanently, "/myproject")
+}
+
 func editProject(c echo.Context) error {
 
 	if userData.IsLogin != true {
@@ -411,7 +479,7 @@ func editProject(c echo.Context) error {
 
 func formRegister(c echo.Context) error {
 
-	// sess, _ := session.Get("session", c)
+	sess, _ := session.Get("session", c)
 
 	if userData.IsLogin != false {
 		return c.Redirect(http.StatusMovedPermanently, "/")
@@ -420,6 +488,8 @@ func formRegister(c echo.Context) error {
 
 	data := map[string]interface{}{
 		"DataSession": userData,
+		"FlashStatus": sess.Values["status"],
+		"FlashMessage": sess.Values["message"],
 	}
 
 	var tmpl, err = template.ParseFiles("views/form-register.html")
@@ -440,6 +510,12 @@ func register(c echo.Context)error {
 	name := c.FormValue("input-name")
 	email := c.FormValue("input-email")
 	password := c.FormValue("input-password")
+
+	user := User{}
+	err = connection.Conn.QueryRow(context.Background(), "SELECT * FROM tb_users WHERE email =$1", email).Scan(&user.Id, &user.Name, &user.Email, &user.Password)
+	if err == nil {
+		return redirectWithMessage(c, "Email already in use !", false,  "/form-register")
+	}
 
 	passwordHash, _ := bcrypt.GenerateFromPassword([]byte(password), 10)
 
@@ -521,92 +597,10 @@ func logout(c echo.Context) error {
 	return c.Redirect(http.StatusMovedPermanently, "/")
 }
 
-func redirectWithMessage(c echo.Context, message string, status bool, path string) error {
-	sess, _ := session.Get("session", c)
-	sess.Values["message"] = message
-	sess.Values["status"] = status
-	sess.Save(c.Request(), c.Response())
-	return c.Redirect(http.StatusMovedPermanently, path)
-}
 
-func submitProject(c echo.Context) error {
-	
-		projectName := c.FormValue("input-name")
-		startDate := c.FormValue("startDate")
-		endDate := c.FormValue("endDate")
-		description := c.FormValue("input-description")
-		nodeJs := c.FormValue("nodeJs")
-		reactJs := c.FormValue("reactJs")
-		golang := c.FormValue("golang")
-		javascript := c.FormValue("javascript")
-		tech := []string{nodeJs,reactJs,golang,javascript}
-		image := c.Get("dataFile").(string)
+func countDuration(dateStart time.Time, dateEnd time.Time) string {
 
-		sess, _ := session.Get("session", c)
-		author := sess.Values["id"].(int)
-
-
-		_, err := connection.Conn.Exec(context.Background(),
-			"INSERT INTO tb_projects (name_project, start_date, end_date, description, image, technologies, author_id) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-			projectName, startDate, endDate, description, image, tech, author,
-		)
-
-		if err != nil {
-			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
-		}
-	
-		
-
-	return c.Redirect(http.StatusMovedPermanently, "/myproject")
-}
-
-func submitEditedProject(c echo.Context) error {
-	
-	// Menangkap Id dari Query Params
-		id, _:= strconv.Atoi(c.Param("id"))
-
-		projectName := c.FormValue("input-name")
-		startDate := c.FormValue("startDate")
-		endDate := c.FormValue("endDate")
-		description := c.FormValue("input-description")
-		nodeJs := c.FormValue("nodeJs")
-		reactJs := c.FormValue("reactJs")
-		golang := c.FormValue("golang")
-		javascript := c.FormValue("javascript")
-		tech := []string{nodeJs,reactJs,golang,javascript}
-		image := c.Get("dataFile").(string)
-
-		start, _ := time.Parse("2006-01-02", startDate)
-		end, _ := time.Parse("2006-01-02", endDate)
-
-
-		_, err := connection.Conn.Exec(context.Background(),
-			"UPDATE tb_projects SET name_project=$1, start_date=$2, end_date=$3, description=$4, image=$5, technologies=$6 WHERE id=$7",
-			projectName, start, end, description, image, tech, id,
-		)
-
-		if err != nil {
-			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
-		}
-
-		return c.Redirect(http.StatusMovedPermanently, "/myproject")
-}
-
-func deleteProject(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
-
-	_, err := connection.Conn.Exec(context.Background(), "DELETE FROM tb_projects WHERE id=$1", id)
-
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
-	}
-
-	return c.Redirect(http.StatusMovedPermanently, "/myproject")
-}
-
-func countDuration(d1 time.Time, d2 time.Time) string {
-
-	diff := d2.Sub(d1)
+	diff := dateEnd.Sub(dateStart)
 	days := int(diff.Hours() / 24)
 	weeks := days / 7
 	months := days / 30
@@ -631,4 +625,12 @@ func checkValue(slice []string, object string) bool {
 		}
 	}
 	return false
+}
+
+func redirectWithMessage(c echo.Context, message string, status bool, path string) error {
+	sess, _ := session.Get("session", c)
+	sess.Values["message"] = message
+	sess.Values["status"] = status
+	sess.Save(c.Request(), c.Response())
+	return c.Redirect(http.StatusMovedPermanently, path)
 }

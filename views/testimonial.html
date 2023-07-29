@@ -23,7 +23,10 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-secondary-subtle">
+  <body
+    class="bg-secondary-subtle"
+    style="display: flex; flex-direction: column"
+  >
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="https://dumbways.id/" target="_blank">
@@ -50,7 +53,13 @@
             </li>
             <li class="nav-item">
               {{if .DataSession.IsLogin}}
-              <a class="nav-link" href="myproject">MY PROJECT</a>
+              <form id="myproject" action="/myproject" method="GET"></form>
+              <a
+                class="nav-link"
+                href="#"
+                onclick="document.getElementById('myproject').submit()"
+                >MY PROJECT</a
+              >
               {{end}}
             </li>
             <li class="nav-item">
@@ -103,7 +112,7 @@
     </nav>
 
     <section
-      class="d-flex flex-column justify-content-center align-items-center"
+      class="d-flex flex-column justify-content-center align-items-center mb-5"
     >
       <div class="text-center my-5">
         <h2 class="fw-bold">WHAT THEY SAY 💬</h2>
@@ -133,6 +142,80 @@
         id="container-testimonials"
       ></div>
     </section>
+
+    <footer
+      class="text-center text-lg-start text-white"
+      id="footer"
+      style="background-color: #3e4551; margin-top: auto"
+    >
+      <div class="container pb-0">
+        <hr class="mb-4" />
+        {{if .DataSession.IsLogin}} {{else}}
+        <section class="">
+          <form id="registerform" action="/form-register" method="GET"></form>
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Register for free</span>
+            <button
+              type="button"
+              onclick="document.getElementById('registerform').submit()"
+              class="btn btn-outline-light btn-rounded"
+            >
+              Sign up!
+            </button>
+          </p>
+        </section>
+        {{end}}
+
+        <section class="mb-4 text-center">
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://www.linkedin.com/in/angganurardiansyah/"
+            role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="https://github.com/AnggaNaa"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+      </div>
+
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-white" href="https://dumbways.id/">Dumbways.id</a>
+      </div>
+    </footer>
 
     <script src="public/js/ajax.js"></script>
     <script

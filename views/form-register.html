@@ -65,6 +65,34 @@
       </div>
     </nav>
 
+    {{if .FlashMessage}} {{if .FlashStatus}}
+    <!-- <div
+      class="alert alert-success alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashMessage}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div> -->
+    {{else}}
+    <div
+      class="alert alert-danger alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashMessage}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {{end}} {{end}}
+
     <div class="p-3">
       <form
         action="register"
@@ -105,6 +133,7 @@
             class="form-control p-2"
             name="input-password"
             id="input-password"
+            minlength="4"
             required
           />
         </div>

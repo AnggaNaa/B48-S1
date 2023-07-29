@@ -51,7 +51,13 @@
             </li>
             <li class="nav-item">
               {{if .DataSession.IsLogin}}
-              <a class="nav-link" href="myproject">MY PROJECT</a>
+              <form id="myproject" action="/myproject" method="GET"></form>
+              <a
+                class="nav-link"
+                href="#"
+                onclick="document.getElementById('myproject').submit()"
+                >MY PROJECT</a
+              >
               {{end}}
             </li>
             <li class="nav-item">
@@ -86,8 +92,13 @@
               </ul>
             </div>
             {{else}}
+            <!-- tambahkan form -->
+            <form id="loginform" action="/form-login" method="GET"></form>
             <div>
-              <a class="btn btn-close-white fs-6 me-2 ps-0" href="form-login"
+              <a
+                class="btn btn-close-white fs-6 me-2 ps-0"
+                href="#"
+                onclick="document.getElementById('loginform').submit()"
                 >Login</a
               >
             </div>
@@ -258,18 +269,21 @@
     >
       <div class="container pb-0">
         <hr class="mb-4" />
-
+        {{if .DataSession.IsLogin}} {{else}}
         <section class="">
+          <form id="registerform" action="/form-register" method="GET"></form>
           <p class="d-flex justify-content-center align-items-center">
             <span class="me-3">Register for free</span>
-            <a href="form-register" rel="noopener noreferrer">
-              <button type="button" class="btn btn-outline-light btn-rounded">
-                Sign up!
-              </button>
-            </a>
+            <button
+              type="button"
+              onclick="document.getElementById('registerform').submit()"
+              class="btn btn-outline-light btn-rounded"
+            >
+              Sign up!
+            </button>
           </p>
         </section>
-
+        {{end}}
         <hr class="mb-4" />
 
         <section class="mb-4 text-center">
@@ -319,7 +333,7 @@
 
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2023 Copyright:
-        <a class="text-white" href="https://dumbways.com/">Dumbways.com</a>
+        <a class="text-white" href="https://dumbways.id/">Dumbways.id</a>
       </div>
     </footer>
 
