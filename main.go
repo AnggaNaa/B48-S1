@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"text/template"
 	"time"
@@ -389,13 +390,30 @@ func submitEditedProject(c echo.Context) error {
 		start, _ := time.Parse("2006-01-02", startDate)
 		end, _ := time.Parse("2006-01-02", endDate)
 
+		oldImageName, err := getProjectImageName(id)
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": "Error fetching project image name"})
+		}
 
-		_, err := connection.Conn.Exec(context.Background(),
+		// Jika ada gambar baru yang diunggah, hapus gambar lama dan ganti dengan yang baru
+		if image != "" {
+			// Hapus file gambar lama dari folder "uploads"
+			err := deleteImageFile("uploads/" + oldImageName)
+			if err != nil {
+				// Jika terjadi kesalahan saat menghapus file gambar, berikan tanggapan tetapi tidak hentikan proses
+				fmt.Println("Kesalahan saat menghapus file gambar:", err)
+			}
+		} else {
+			// Jika tidak ada gambar baru yang diunggah, gunakan gambar lama
+			image = oldImageName
+		}
+
+		_, err1 := connection.Conn.Exec(context.Background(),
 			"UPDATE tb_projects SET name_project=$1, start_date=$2, end_date=$3, description=$4, image=$5, technologies=$6 WHERE id=$7",
 			projectName, start, end, description, image, tech, id,
 		)
 
-		if err != nil {
+		if err1 != nil {
 			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 		}
 
@@ -404,12 +422,23 @@ func submitEditedProject(c echo.Context) error {
 
 func deleteProject(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
-
-	_, err := connection.Conn.Exec(context.Background(), "DELETE FROM tb_projects WHERE id=$1", id)
-
+	
+	projectImageName, err := getProjectImageName(id)
 	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"message": "Error fetching project image name"})
+	}
+
+	err = deleteImageFile("uploads/" + projectImageName)
+	if err != nil {
+		fmt.Println("Kesalahan saat menghapus file gambar:", err)
+	}
+
+	_, err1 := connection.Conn.Exec(context.Background(), "DELETE FROM tb_projects WHERE id=$1", id)
+
+	if err1 != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
+
 
 	return c.Redirect(http.StatusMovedPermanently, "/myproject")
 }
@@ -633,4 +662,21 @@ func redirectWithMessage(c echo.Context, message string, status bool, path strin
 	sess.Values["status"] = status
 	sess.Save(c.Request(), c.Response())
 	return c.Redirect(http.StatusMovedPermanently, path)
+}
+
+
+func getProjectImageName(id int) (string, error){
+	var imageName string
+	err := connection.Conn.QueryRow(context.Background(), "SELECT image FROM tb_projects WHERE id=$1", id).Scan(&imageName,)
+	if err != nil {
+		return "", err
+	}
+
+	fmt.Println("Image name retrieved from database:", imageName)
+	return imageName, nil
+}
+
+func deleteImageFile(filePath string) error{
+	err := os.Remove(filePath)
+	return err
 }
