@@ -42,8 +42,8 @@ type User struct {
 }
 
 type SessionData struct {
-	IsLogin bool
-	Name string
+		IsLogin bool
+		Name string
 }
 
 var userData = SessionData{}
@@ -190,19 +190,10 @@ func myproject(c echo.Context) error {
 	}
 
 
-	// sess, _ := session.Get("session", c)
-
-	// if sess.Values["isLogin"] != true {
-	// 	userData.IsLogin = false
-	// } else {
-	// 	userData.IsLogin = sess.Values["isLogin"].(bool)
-	// 	userData.Name = sess.Values["name"].(string)
-	// }
 
 	projects := map[string]interface{}{
 		"Projects": projectData,
 		"DataSession": userData,
-		// "Author" : userData.Name,
 	}
 
 	var tmpl, err = template.ParseFiles("views/myproject.html")
@@ -373,7 +364,7 @@ func submitProject(c echo.Context) error {
 
 func submitEditedProject(c echo.Context) error {
 	
-	// Menangkap Id dari Query Params
+	// 	Catch Id from Query Params
 		id, _:= strconv.Atoi(c.Param("id"))
 
 		projectName := c.FormValue("input-name")
@@ -395,16 +386,12 @@ func submitEditedProject(c echo.Context) error {
 			return c.JSON(http.StatusInternalServerError, map[string]string{"message": "Error fetching project image name"})
 		}
 
-		// Jika ada gambar baru yang diunggah, hapus gambar lama dan ganti dengan yang baru
 		if image != "" {
-			// Hapus file gambar lama dari folder "uploads"
 			err := deleteImageFile("uploads/" + oldImageName)
 			if err != nil {
-				// Jika terjadi kesalahan saat menghapus file gambar, berikan tanggapan tetapi tidak hentikan proses
 				fmt.Println("Kesalahan saat menghapus file gambar:", err)
 			}
 		} else {
-			// Jika tidak ada gambar baru yang diunggah, gunakan gambar lama
 			image = oldImageName
 		}
 
@@ -491,10 +478,10 @@ func editProject(c echo.Context) error {
 
 	
 	data := map[string]interface{}{
-		"Project"			:   ProjectDetail,
-		"StartDate": start,
-		"EndDate":   end,
-		"DataSession": userData,
+		"Project"			: ProjectDetail,
+		"StartDate"			: start,
+		"EndDate"			: end,
+		"DataSession"		: userData,
 	}
 	
 	var tmpl, errTemplate = template.ParseFiles("views/edit-project.html")
@@ -599,7 +586,7 @@ func login(c echo.Context) error {
 		return redirectWithMessage(c, "Email Incorrect!", false,  "/form-login")
 	}
 
-	// membandingkan password yg di db dengan yg di html
+	// compare passwords in database
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if err != nil {
 		return redirectWithMessage(c, "Password Incorrect!", false, "/form-login")
